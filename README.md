@@ -88,11 +88,11 @@
 
 ### GitHub
 
-[Client repository Link](https://github.com/MP-Project-Meead/client)
+* Clint [Client repository Link](https://github.com/MP-Project-Meead/client)
 
-[Server repository Link](https://github.com/MP-Project-Meead/server)
+* Server [Server repository Link](https://github.com/MP-Project-Meead/server)
 
-[Deployed App Link](http://heroku.com/)
+* Heroku [Deployed App Link](http://heroku.com/)
 
 
 ## UML
