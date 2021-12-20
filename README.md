@@ -38,6 +38,40 @@
 | `/Product/:id`                    | Product by id | public         | show course                                                          |
 
 ---
+
+## Components
+
+- Home
+- NavBar
+- Header
+- Search
+- Register
+- Login
+- FAQs
+- Profile
+- Product
+- oneProduct
+- Comments
+- Footer
+- Auction
+
+---
+
+## Reducer
+- index
+- sigin
+
+---
+
+### GitHub
+
+[Client repository Link](https://github.com/MP-Project-Meead/client)
+
+[Server repository Link](https://github.com/MP-Project-Meead/server)
+
+[Deployed App Link](http://heroku.com/)
+
+
 ## UML
 ![UML-FrontEnd drawio](https://user-images.githubusercontent.com/92248111/146668935-6dd095b0-7195-42f9-8836-b748c4980d85.png)
 
