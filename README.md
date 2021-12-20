@@ -89,7 +89,7 @@
 ## UML
 ![UML-FrontEnd drawio](https://user-images.githubusercontent.com/92248111/146668935-6dd095b0-7195-42f9-8836-b748c4980d85.png)
  
- ### Linke 
+ ### Linkes 
 * Clint [Client repository Link](https://github.com/MP-Project-Meead/client)
 * Server [Server repository Link](https://github.com/MP-Project-Meead/server)
 * Heroku [Deployed App Link](http://heroku.com/)
