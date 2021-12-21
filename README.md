@@ -93,6 +93,6 @@
 * Clint [Client repository Link](https://github.com/MP-Project-Meead/client)
 * Server [Server repository Link](https://github.com/MP-Project-Meead/server)
 * Heroku [Deployed App Link](http://heroku.com/)
-* Trello [Link to trello board](https://trello.com)
+* Trello [Link to trello board](https://trello.com/b/gawVOASv/mp-porject)
 * Slides [Slides Link](http://slides.com/)
 
