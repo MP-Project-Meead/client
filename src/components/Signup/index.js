@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // import "./style.css";
+// import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { logIn } from "../../reducers/login";
 import { useDispatch } from "react-redux";
+// import { GoogleLogin } from "react-google-login";
 
 const Signup = () => {
   let navigate = useNavigate();
@@ -14,12 +16,11 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
 
-  //////////////////////////////////////////////////////////////////////////////////////
 
   const getUser = async () => {
     const users = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/user/signUp`,
-      {name , username ,email, password, role: "61c42c3139940ec8e18224d0" }
+      { email, username, password, role: "61c42c3139940ec8e18224d0" }
     );
     if (users.status === 204) {
       setMessage(
@@ -31,9 +32,8 @@ const Signup = () => {
       setMessage(users.data);
     }
   };
-
-//////////////////////////////////////////////////////////////////////////////////////
-
+  
+  
   return (
     <>
       <div className="describeItem">
@@ -47,13 +47,7 @@ const Signup = () => {
             }}
           />
         </div>
-        <input
-          type="text"
-          placeholder=" Name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
+        
         <div>
           <input
             type="text"
@@ -77,13 +71,15 @@ const Signup = () => {
           onClick={() => {
             getUser();
           }}
-        ></button>
+        >
+        </button>
         <div className="already">
           already have an account?{" "}
           <Link className="linkk" to="/">
             log in{" "}
           </Link>
         </div>
+
 
         <div className="mesageL">{message} </div>
       </div>

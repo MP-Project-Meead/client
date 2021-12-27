@@ -7,7 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import WishList from "./components/WishList";
 import Header from "./components/Header";
-import Forget from "./components/Forget";
+import ForgetPassword from "./components/ForgetPassword";
 import OneProduct from "./components/OneProduct";
 import Profile from "./components/Profile";
 import Users from "./components/Users";
@@ -29,7 +29,7 @@ const App = () => {
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/WishList" element={<WishList />} />
         <Route exact path="/Header" element={<Header />} />
-        <Route exact path="/Forget" element={<Forget />} />
+        <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
         <Route exact path="/OneProduct" element={<OneProduct />} />
         <Route exact path="/Users" element={<Users />} />
         <Route exact path="/OneUser" element={<OneUser />} />
