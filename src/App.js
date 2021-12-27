@@ -1,61 +1,44 @@
-import "./App.css";
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/home/home";
-import Signup from "./components/signup/signup";
-import Header from "./components/header/header";
-import Login from "./components/logIn/login";
-import Forget from "./components/forget/forget";
-import Product from "./components/Product";
-import Profile from "./components/profile/profile";
-import Users from "./components/users/users";
-import OneUser from "./components/oneUser/oneuser";
-import { useSelector } from "react-redux";
-import Notfound from "./components/NotFound/Notfound";
-import NotFoundUn from "./components/notfoundunlog/notfound";
+// import "./App.css";
+import React  from "react";
+import { Route, Routes  } from "react-router-dom";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import WishList from "./components/WishList";
+import Header from "./components/Header";
+import Forget from "./components/Forget";
+import OneProduct from "./components/OneProduct";
+import Profile from "./components/Profile";
+import Users from "./components/Users";
+import OneUser from "./components/OneUser";
+import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
+// import Reset from "./components/Reset";
+// import NotFoundUn from "./components/NotFoundUn";
 
-function App() {
-  const state = useSelector((state) => {
-    return state;
-  });
 
+const App = () => {
   return (
     <>
-      <div className="kkk">
-        <img
-          alt="img"
-          className="backg"
-          src="https://images.pexels.com/photos/272745/pexels-photo-272745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-        />
-        <div className="bgg"></div>
-        {state.signIn.token && (
-          <>
-            <Header />
-            <Routes>
-              <Route exact path="/home" element={<Home />} />
-              <Route exact path="/profile" element={<Profile />} />
-              <Route exact path="/users" element={<Users />} />
-              <Route exact path="/profile/:id" element={<OneUser />} />
-              <Route exact path="/home/Product/:id" element={<Product />} />
-              <Route path="*" element={<Notfound />} />
-            </Routes>
-          </>
-        )}
-        {!state.signIn.token && (
-          <>
-            <Header />
-            <Routes>
-              <Route exact path="/forgetPassword" element={<Forget />} />
-              <Route exact path="/resetPassword" element={<Reset />} />
-              <Route exact path="/signup" element={<Signup />} />
-              <Route exact path="/" element={<Login />} />
-              <Route path="*" element={<NotFoundUn />} />
-            </Routes>
-          </>
-        )}
-      </div>
+      <Nav />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/Signup" element={<Signup />} />
+        <Route exact path="/Login" element={<Login />} />
+        <Route exact path="/Profile" element={<Profile />} />
+        <Route exact path="/WishList" element={<WishList />} />
+        <Route exact path="/Header" element={<Header />} />
+        <Route exact path="/Forget" element={<Forget />} />
+        <Route exact path="/OneProduct" element={<OneProduct />} />
+        <Route exact path="/Users" element={<Users />} />
+        <Route exact path="/OneUser" element={<OneUser />} />
+        <Route exact path="/NotFound" element={<NotFound />} />
+        {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
+        {/* <Route exact path="/Reset" element={<Reset />} /> */}
+      </Routes>
+      <Footer />
     </>
   );
-}
-
+};
 export default App;
