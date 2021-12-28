@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // import "./style.css";
-// import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { logIn } from "../../reducers/login";
 import { useDispatch } from "react-redux";
 // import { GoogleLogin } from "react-google-login";
@@ -47,7 +47,7 @@ const Signup = () => {
             }}
           />
         </div>
-        
+
         <div>
           <input
             type="text"
@@ -71,15 +71,13 @@ const Signup = () => {
           onClick={() => {
             getUser();
           }}
-        >
-        </button>
+        ></button>
         <div className="already">
           already have an account?{" "}
-          <Link className="linkk" to="/">
+          <Link className="linkk" to="/Login">
             log in{" "}
           </Link>
         </div>
-
 
         <div className="mesageL">{message} </div>
       </div>
