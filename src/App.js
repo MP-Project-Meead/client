@@ -13,7 +13,9 @@ import Profile from "./components/Profile";
 import Users from "./components/Users";
 import OneUser from "./components/OneUser";
 import NotFound from "./components/NotFound";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import FAQs from "./components/FAQs";
+
 // import Reset from "./components/Reset";
 // import NotFoundUn from "./components/NotFoundUn";
 
@@ -24,8 +26,10 @@ const App = () => {
       <Nav />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/Signup" element={<Signup />} />
+        <Route exact path="/signUp" element={<Signup />} />
         <Route exact path="/Login" element={<Login />} />
+        <Route exact path="/FAQs" element={<FAQs />} />
+
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/WishList" element={<WishList />} />
         <Route exact path="/Header" element={<Header />} />
@@ -39,7 +43,7 @@ const App = () => {
         {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
         {/* <Route exact path="/Reset" element={<Reset />} /> */}
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

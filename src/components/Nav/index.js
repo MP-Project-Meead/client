@@ -1,135 +1,59 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import { AiOutlineLogout } from "react-icons/ai";
+import { useSelector } from "react-redux";
+import { logOut } from "../../reducers/login";
+import { useDispatch } from "react-redux";
 
-//////////////////////////////////////////////////////////////////////////////////////
-const Nav = () => {
-  
+const Header = () => {
   let navigate = useNavigate();
-  function logout() {
+  const dispatchEvent = useDispatch();
+
+  const state = useSelector((state) => {
+    return state;
+  });
+
+  const logout = () => {
+    const data = {
+      role: "",
+      token: "",
+      userID: "",
+    };
+    dispatchEvent(logOut(data));
     navigate(`/`);
-    localStorage.removeItem("userId");
-    window.location.reload(false);
-  }
-  function hide() {
-    window.location.reload(false);
-  }
+  };
 
-//////////////////////////////////////////////////////////////////////////////////////
   return (
-    <div className="containerNav">
-      <ul className="ulNav">
-        <li className="lii">
-          <h4>
-            {localStorage.getItem("userId") ? (
-              <Link
-                className="linkk"
-                to="/"
-                onClick={() => {
-                  logout();
-                }}
-              >
-                logout
-              </Link>
-            ) : (
-              ""
-            )}
-          </h4>
-        </li>
-
-        <li className="lii">
-          <h4 className="icon">
-            {localStorage.getItem("userId") ? (
-              <Link
-                className="linkk"
-                to="/bookMark"
-                onChange={() => {
-                  hide();
-                }}
-              ></Link>
-            ) : (
-              ""
-            )}
-          </h4>
-        </li>
-        <li className="lii">
-          <h4>
-            {localStorage.getItem("userId") ? (
-              <Link
-                className="linkk"
-                to="/profile"
-                onChange={() => {
-                  hide();
-                }}
-              >
-                Profile
-              </Link>
-            ) : (
-              ""
-            )}
-          </h4>
-        </li>
-
-        {localStorage.getItem("userId") ? (
-          ""
-        ) : (
-          <li className="lii" id="linkk3">
-            <h4>
-              <Link
-                className="linkk"
-                to="/Signup"
-                onChange={() => {
-                  hide();
-                }}
-              >
-                Signup
-              </Link>
-            </h4>
+    <>
+      <div className="nav">
+        <ul>
+          <li className="lie" id="homeNav">
+            <Link className="link" to="/signUp">
+              Signup
+            </Link>
           </li>
-        )}
-
-        <li className="lii">
-          <h4>
-            <Link className="linkk" to="/">
+          <li className="lie" id="homeNav">
+            <Link className="link" to="/">
               Home
             </Link>
-          </h4>
-        </li>
-        <li className="lii">
-          <h4>
-            <Link className="linkk" to="/Category">
-              Category
-            </Link>
-          </h4>
-        </li>
-
-        <li className="lii">
-          <h4>
-            <Link className="linkk" to="/FAQs">
+          </li>
+          <li className="lie" id="homeNav">
+            <Link className="link" to="/FAQs">
               FAQs
             </Link>
-          </h4>
-        </li>
-
-        <li className="lii">
-          <h4>
-            <Link className="linkk" to="/ContactUs">
-              ContactUs
-            </Link>
-          </h4>
-        </li>
-
-        <li className="lii">
-          <h4>
-            <Link id="firstli" className="linkk" to="/AboutUs">
-              AboutUs
-            </Link>
-          </h4>
-        </li>
-      </ul>
-    </div>
+          </li>
+          {state.signIn.role === "61c42c3139940ec8e18224d0" && (
+            <li className="lie">
+              <span className="link" onClick={logout}>
+                <AiOutlineLogout />
+              </span>
+            </li>
+          )}
+        </ul>
+      </div>
+    </>
   );
 };
 
-export default Nav;
+export default Header;

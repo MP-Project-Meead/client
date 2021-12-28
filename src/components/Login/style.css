@@ -1,10 +1,15 @@
 .describeItem {
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  width: 90%;
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  width: 90%;
   font-family: "Dosis", sans-serif;
   font-size: 60px;
   align-items: center;
   text-align: center;
+  /* min-height: 100vh; */
+  width: 600px;
+  height: 750px;
+  margin-left: 30%;
+  color:#005870;
+  margin-bottom: 50px;
 }
 .Logg {
   display: block;
@@ -13,8 +18,7 @@
 }
 
 .describeItem input {
- box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-style: none;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  border-style: none;
   padding: 5px;
   font-size: 30px;
   border-radius: 3px;
@@ -41,7 +45,8 @@
 }
 
 .goIcon {
-  color: rgba(192, 145, 102, 0.794);
+  color:#005870;
+
   /* background-color: rgba(192, 146, 102, 0.719); */
   font-size: 45px;
 }
@@ -61,12 +66,12 @@ cursor: pointer;
 }
 .already {
   font-size: 30px;
+  color:#005870;
 }
 
 .linkk {
-  color: black;
-}
+color:#005870;}
 
 input{
-  color:black
+color:#005870;
 }

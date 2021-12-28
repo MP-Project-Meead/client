@@ -57,8 +57,8 @@ const Login = () => {
           }}
         />
         <h6 className="forgetPass" onClick={navForget}>
-          
-          forget password?
+          {" "}
+          forget password?{" "}
         </h6>
         <button
           className="LogBtn"
@@ -69,9 +69,9 @@ const Login = () => {
           <BsFillArrowRightCircleFill className="goIcon" />
         </button>
         <div className="already">
-          Don't have an account?
-          <Link className="linkk" to="/signup">
-            Sign up
+          Don't have an account?{" "}
+          <Link className="linkk" to="/signUp">
+            Sign up{" "}
           </Link>
         </div>
         <div className="mesageL">{message} </div>
