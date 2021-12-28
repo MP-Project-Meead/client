@@ -3,11 +3,12 @@
   margin: 0;
   padding: 0;
 }
+
 .ulNav {
   display: flex;
   justify-content: space-around;
   padding-top: 20px;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
 }
 .icon{
   font-size: 30px;
@@ -16,61 +17,36 @@
 .containerNav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.01px solid  rgb(210, 210, 231);
+  /* border-bottom: 0.01px solid  rgb(210, 210, 231); */
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color:#005870;
+
 }
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown .dropbtn {
-  font-size: 17px;    
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-.loguot {
+
+/* .loguot {
   background-color: white;
   border-color: white;
   border-radius: px;
-}
+} */
 .lii {
   font-family: 'Tajawal', sans-serif;
   text-decoration: none;
-  color: black;
   cursor: pointer;
   margin-right: 60px;
   margin-left: 60px;
   margin-top: 10px;
-  list-style: none;  
+  list-style: none; 
+  font-size: larger; 
 }
 .linkk {
   text-decoration: none;
-  color: rgb(2 2 88);
+  /* color: rgb(2 2 88); */
 }
 #linkk3{
  text-decoration: none;
-  color: rgb(2 2 88);
+  /* color: rgb(2 2 88); */
   margin-left: -150px;
 }
-.linkk:hover {
+/* .linkk:hover {
   color: rgb(2 2 88);
-}
+} */

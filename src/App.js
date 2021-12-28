@@ -34,6 +34,8 @@ const App = () => {
         <Route exact path="/Users" element={<Users />} />
         <Route exact path="/OneUser" element={<OneUser />} />
         <Route exact path="/NotFound" element={<NotFound />} />
+        <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
+
         {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
         {/* <Route exact path="/Reset" element={<Reset />} /> */}
       </Routes>
