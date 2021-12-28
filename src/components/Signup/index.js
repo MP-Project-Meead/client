@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
 // import "./style.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { logIn } from "../../reducers/login";
 import { useDispatch } from "react-redux";
-// import { GoogleLogin } from "react-google-login";
+
 
 const Signup = () => {
   let navigate = useNavigate();
@@ -36,9 +37,27 @@ const Signup = () => {
   
   return (
     <>
-      <div className="describeItem">
+      <div className="describeItem ">
         <span className="Logg">sign up </span>
         <div>
+          <div>
+            <input
+              type="text"
+              placeholder="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
+          </div>
           <input
             type="text"
             placeholder=" email"
@@ -47,6 +66,7 @@ const Signup = () => {
             }}
           />
         </div>
+
 
         <div>
           <input
@@ -57,6 +77,7 @@ const Signup = () => {
             }}
           />
         </div>
+
         <div>
           <input
             type="password"
@@ -71,6 +92,9 @@ const Signup = () => {
           onClick={() => {
             getUser();
           }}
+        >
+          <BsFillArrowRightCircleFill className="goIcon" />
+        </button>
         ></button>
         <div className="already">
           already have an account?{" "}

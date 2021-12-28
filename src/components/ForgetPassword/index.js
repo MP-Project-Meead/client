@@ -1,7 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+// import "./style.css";
 
-const ForgetPassword = () => {
-  return <div></div>;
+const Forget = () => {
+  let navigate = useNavigate();
+
+  const [email, setEmail] = useState(""); 
+  const [message, setMessage] = useState("");
+
+  const restPass = async () => {
+    const result = await axios.put(
+      `${process.env.REACT_APP_BASE_URL}/user/forgetPassword`,
+      { email }
+    );
+    if (result.status === 200) {
+      //pass
+      navigate(`/ForgetPassword`);
+    } else {
+      setMessage(result.data);
+    }
+  };
+  return (
+    <div className="forgett">
+      <input
+        className="forgetInput"
+        type="text"
+        placeholder="email"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <button className="forgetBtn" onClick={restPass}>
+        send email
+      </button>
+      {message}
+    </div>
+  );
 };
 
-export default ForgetPassword;
+export default Forget;
