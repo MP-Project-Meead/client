@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
+// import "./style.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-// import { logIn } from "../../reducers/login";
+import { logIn } from "../../reducers/login";
 import { useDispatch } from "react-redux";
 
 
@@ -67,6 +69,18 @@ const Signup = () => {
             }}
           />
         </div>
+
+
+        <div>
+          <input
+            type="text"
+            placeholder="username"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+        </div>
+
         <div>
           <input
             type="password"
@@ -84,6 +98,7 @@ const Signup = () => {
         >
           <BsFillArrowRightCircleFill className="goIcon" />
         </button>
+        ></button>
         <div className="already">
           already have an account?{" "}
           <Link className="linkk" to="/Login">
