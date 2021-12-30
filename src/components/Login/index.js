@@ -42,7 +42,8 @@ const Login = () => {
         <div>
           <input
             type="text"
-            placeholder=" email or username"
+            classNasme="inputs"
+            placeholder="  email or username"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -50,14 +51,15 @@ const Login = () => {
         </div>
         <input
           type="password"
-          placeholder=" password"
+          classNasme="inputs"
+          placeholder="  password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <h6 className="forgetPass" onClick={navForget}>
-          
-          forget password?
+          {" "}
+          forget password?{" "}
         </h6>
         <button
           className="LogBtn"
@@ -68,9 +70,9 @@ const Login = () => {
           <BsFillArrowRightCircleFill className="goIcon" />
         </button>
         <div className="already">
-          Don't have an account?
-          <Link className="linkk" to="/signup">
-            Sign up
+          Don't have an account?{" "}
+          <Link className="linkk" to="/signUp">
+            Sign up{" "}
           </Link>
         </div>
 

@@ -11,17 +11,19 @@ import { useDispatch } from "react-redux";
 const Signup = () => {
   let navigate = useNavigate();
   const dispatchEvent = useDispatch();
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
-  const [name, setName] = useState("");
+  
+  
 
 
   const getUser = async () => {
     const users = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/user/signUp`,
-      { email, username, password, role: "61c42c3139940ec8e18224d0" }
+      { name, username, email, password, role: "61c42c3139940ec8e18224d0" }
     );
     if (users.status === 204) {
       setMessage(
@@ -32,6 +34,7 @@ const Signup = () => {
     } else {
       setMessage(users.data);
     }
+    console.log(users.data);
   };
   
   
