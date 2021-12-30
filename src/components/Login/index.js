@@ -14,9 +14,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const getUser = async () => {
+    console.log(email);
+
     const users = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/user/logIn`,
-      { input: email, password }
+      { emailOrUserName: email, password }
     );
     if (users.status !== 200) {
       setMessage(users.data);
@@ -26,15 +28,15 @@ const Login = () => {
         token: users.data.token,
         userID: users.data.result._id,
       };
+      console.log("jjjjjjjjjj");
+
       dispatchEvent(logIn(data));
       navigate(`/`);
     }
   };
-
   const navForget = () => {
     navigate(`/ForgetPassword`);
   };
-
   return (
     <>
       <div className="describeItem">
@@ -42,7 +44,8 @@ const Login = () => {
         <div>
           <input
             type="text"
-            placeholder=" email or username"
+            classNasme="inputs"
+            placeholder="  email or username"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -50,13 +53,13 @@ const Login = () => {
         </div>
         <input
           type="password"
-          placeholder=" password"
+          classNasme="inputs"
+          placeholder="  password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <h6 className="forgetPass" onClick={navForget}>
-          
           forget password?
         </h6>
         <button
@@ -69,8 +72,8 @@ const Login = () => {
         </button>
         <div className="already">
           Don't have an account?
-          <Link className="linkk" to="/signup">
-            Sign up
+          <Link className="linkk" to="/signUp">
+            Sign up{" "}
           </Link>
         </div>
 

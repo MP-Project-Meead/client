@@ -1,43 +1,92 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 import "./style.css";
 
-const Forget = () => {
+const Users = () => {
   let navigate = useNavigate();
+  const [allUsers, setAllUsers] = useState([]);
 
-  const [email, setEmail] = useState(""); //email or user
-  const [message, setMessage] = useState("");
+  useEffect(() => {
+    getAllUsers();
+    // eslint-disable-next-line
+  }, []);
 
-  const restPass = async () => {
-    const result = await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/user/forgetPassword`,
-      { email }
+  const state = useSelector((state) => {
+    return state;
+  });
+
+  const getAllUsers = async () => {
+    const users = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/user/allusers`,
+      {
+        headers: {
+          Authorization: `Bearer ${state.signIn.token}`,
+        },
+      }
     );
-    if (result.status === 200) {
-      //pass
-      navigate(`/resetPassword`);
-    } else {
-      setMessage(result.data);
-    }
+    setAllUsers(users.data);
   };
+
+  const deleteUser = async (userId) => {
+    await axios.delete(
+      `${process.env.REACT_APP_BASE_URL}/user/delete/?_id=${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${state.signIn.token}`,
+        },
+      }
+    );
+    getAllUsers();
+  };
+
+  const goInside = (id) => {
+    navigate(`/Profile/${id}`);
+  };
+
   return (
-    <div className="forgett">
-      <input
-        className="forgetInput"
-        type="text"
-        placeholder="email"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <button className="forgetBtn" onClick={restPass}>
-        {" "}
-        send email{" "}
-      </button>
-      {message}
+    <div className="usersContener">
+      {allUsers &&
+        allUsers.map((ele) => {
+          return (
+            <div key={ele._id} className="userss">
+              <div className="imgContener0">
+                <img
+                  className="img3"
+                  src={ele.img}
+                  alt="img"
+                  onClick={() => {
+                    goInside(ele._id);
+                  }}
+                />
+              </div>
+              {/* <div className="imgContener">
+              <img className="imgg" src={post[0].postedBy.img} />
+            </div> */}
+
+              <h4
+                className="userName"
+                onClick={() => {
+                  goInside(ele._id);
+                }}
+              >
+                {ele.username}
+              </h4>
+              <button
+                className="deleteBtn2"
+                onClick={() => deleteUser(ele._id)}
+              >
+                {" "}
+                delete{" "}
+              </button>
+            </div>
+          );
+        })}
+
+      {!allUsers.length && <h2>there is no user or you are forbidden</h2>}
     </div>
   );
 };
 
-export default Forget;
+export default Users;
