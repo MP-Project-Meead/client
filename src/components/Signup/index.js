@@ -70,7 +70,6 @@ const Signup = () => {
           />
         </div>
 
-
         {/* <div>
           <input
             type="text"
@@ -98,7 +97,7 @@ const Signup = () => {
         >
           <BsFillArrowRightCircleFill className="goIcon" />
         </button>
-     
+
         <div className="already">
           already have an account?{" "}
           <Link className="linkk" to="/Login">

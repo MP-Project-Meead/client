@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Cinzel+Decorative:wght@700&family=Mirza&family=Tajawal:wght@200;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +11,13 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .lie {
+  font-family: 'Cinzel Decorative', cursive;
   display: inline-block;
   margin: 1% 5.5%;
-  color: #005870;
+  /* color: #005870; */
+    color: #8f7533;
+    font-size: 1.12rem;
+
 }
 .lie:hover {
   cursor: pointer;
@@ -32,4 +38,23 @@
 ​
 #logo {
   margin-right: 35%;
+}
+.iconLogut{
+  font-size: 30px;
+  margin-top:40px ;
+}
+
+.logo{
+  margin-left: 40%;
+  width: 300px;
+  height: 200px;
+}
+.luxury{
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 100px;
+  margin-left: 40%;
+  /* color: #005870; */
+    color: #CDAE5D;
+
+
 }
