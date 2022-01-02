@@ -1,4 +1,4 @@
-.dressContainer{
+.dressContainer {
   margin-top: 30%;
   margin: auto;
   display: grid;
@@ -7,9 +7,9 @@
   width: 70rem;
 }
 
-.container{
+.container {
   margin-top: 10%;
 }
-.derssCard{
-    width: 300px;
+.derssCard {
+  width: 300px;
 }

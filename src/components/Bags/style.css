@@ -1,4 +1,4 @@
-.bagsContainer{
+.bagsContainer {
   margin-top: 30%;
   margin: auto;
   display: grid;
@@ -6,4 +6,3 @@
   border-radius: 5px;
   width: 70rem;
 }
-

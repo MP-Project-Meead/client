@@ -3,40 +3,40 @@
   width: 100%;
   height: 800px;
 }
-.propertyImges{
+.propertyImges {
   width: 100%;
   height: 700px;
 }
-.paragraph{
+.paragraph {
   height: 100%;
   width: 100%;
 }
 
-.ContainerHome1{
-  margin : 10% 20%;
+.ContainerHome1 {
+  margin: 10% 20%;
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.video1{
+.video1 {
   margin-top: 10rem;
   width: 80%;
-  height:  700px;
+  height: 700px;
   margin-left: 8%;
 }
 
-.imageHome1{
-   height: 400px;
+.imageHome1 {
+  height: 400px;
   width: 900px;
   border-radius: 5px;
 }
-.goToBrand{
+.goToBrand {
   /* background-color: #f0ede8; */
   background-color: black;
   color: aliceblue;
 }
-.LVImage{
+.LVImage {
   height: 400px;
   width: 900px;
 }

@@ -10,7 +10,7 @@ import { Card } from "antd";
 //////////////////////////////////////////////////////////////////
 const Dress = (props) => {
   const [dress, setDress] = useState([]);
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   const { Meta } = Card;
 
   //////////////////////////////////////////////////////////////////
@@ -27,40 +27,44 @@ const Dress = (props) => {
   useEffect(() => {
     getDress();
   }, []);
-const oneProduct = (id) => {
-  console.log(id);
-  navigate(`/product/${id}`);
-};
+  const oneProduct = (id) => {
+    console.log(id);
+    navigate(`/product/${id}`);
+  };
 
   //////////////////////////////////////////////////////////////////
-return (
-  <div className="container">
-    <div className="dressContainer">
-      {dress ? (
-        <>
-          {dress.map((ele) => {
-            return (
-               <div className="card">
-
-                <Card
-                  onClick={() => oneProduct(ele._id)}
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt="example" src={ele.image} className="derssCard" />}
-                >
-                  <Meta title={ele.creator} description={ele.name} />
-                </Card>
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <h1>loading ...</h1>
-      )}
+  return (
+    <div className="container">
+      <div className="dressContainer">
+        {dress ? (
+          <>
+            {dress.map((ele) => {
+              return (
+                <div className="card">
+                  <Card
+                    onClick={() => oneProduct(ele._id)}
+                    hoverable
+                    style={{ width: 240 }}
+                    cover={
+                      <img
+                        alt="example"
+                        src={ele.image}
+                        className="derssCard"
+                      />
+                    }
+                  >
+                    <Meta title={ele.creator} description={ele.name} />
+                  </Card>
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          <h1>loading ...</h1>
+        )}
+      </div>
     </div>
-  </div>
-);
-  
+  );
 };
 
 export default Dress;

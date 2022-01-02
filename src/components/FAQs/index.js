@@ -8,7 +8,7 @@ const FAQs = () => {
   function callback(key) {
     console.log(key);
   }
-  
+
   return (
     <Collapse
       defaultActiveKey={["1", "2", "3"]}

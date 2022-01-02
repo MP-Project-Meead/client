@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const Forget = () => {
-
   let navigate = useNavigate();
   const [email, setEmail] = useState(""); //email or user
   const [message, setMessage] = useState("");

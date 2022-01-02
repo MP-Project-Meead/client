@@ -1,13 +1,12 @@
-.shoesContainer{
+.shoesContainer {
   margin-top: 10%;
   margin: auto;
   display: grid;
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto;
   border-radius: 5px;
   width: 70rem;
 }
 
-
-.card{
+.card {
   margin-top: 20px;
 }

@@ -12,7 +12,7 @@ import { Spinner } from "@chakra-ui/react";
 const Shoes = (props) => {
   const [shoes, setShoes] = useState([]);
   let navigate = useNavigate();
-const { Meta } = Card;
+  const { Meta } = Card;
   //////////////////////////////////////////////////////////////////
   const getShoes = async () => {
     const product = await axios.get(
@@ -27,12 +27,10 @@ const { Meta } = Card;
   useEffect(() => {
     getShoes();
   }, []);
-  
 
   const oneProduct = (id) => {
     navigate(`/product/${id}`);
   };
- 
 
   //////////////////////////////////////////////////////////////////
 
@@ -44,7 +42,7 @@ const { Meta } = Card;
             {shoes.map((ele) => {
               return (
                 <div className="card">
-                  <Card 
+                  <Card
                     onClick={() => oneProduct(ele._id)}
                     hoverable
                     style={{ width: 240 }}
