@@ -15,7 +15,7 @@ const Reset = () => {
       { resetLink: code, newPassword: newPass }
     );
     if (result.status === 200) {
-      navigate(`/`);
+      navigate(`/Home`);
     } else {
       setMessage(result.data);
     }

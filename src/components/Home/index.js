@@ -22,7 +22,6 @@ const Home = () => {
         autoPlay={true}
         infiniteLoop={true}
         interval={2000}
-        // showStatus={false}
         thumbWidth={100}
         showIndicators={false}
         showThumbs={false}
@@ -48,7 +47,14 @@ const Home = () => {
       </Carousel>
 
       <div className="video">
-        <video controls autostart autoPlay src={Video} type="video/mp4" className="video1" />
+        <video
+          controls
+          autostart
+          autoPlay
+          src={Video}
+          type="video/mp4"
+          className="video1"
+        />
       </div>
       <div className="ContainerHome1">
         <div>

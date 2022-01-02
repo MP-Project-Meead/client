@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "./style.css";
+import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-
-
   let navigate = useNavigate();
   const state = useSelector((state) => {
     return state;
   });
   const [user, setuser] = useState([]);
-  // const [userPostss, setUserPostss] = useState([]);
+  const [userLikes, setUserLikes] = useState([]);
   useEffect(() => {
-    getUser();
+    getAllLikes();
   }, []);
 
-  //////////////////////////////////////////////////////////////////////////////
-
   const getUser = async () => {
-
     const user = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/users/${state.signIn.userID}`,
+      `${process.env.REACT_APP_BASE_URL}/user/${state.signIn.userID}`,
       {
         headers: {
           Authorization: `Bearer ${state.signIn.token}`,
@@ -31,20 +26,19 @@ const Profile = () => {
     );
     setuser(user.data);
 
-
-    const userLikes = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/posts/userPost/${state.signIn.userID}`,
+    const liked = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/likes/userliked/${state.signIn.userID}`,
       {
         headers: {
           Authorization: `Bearer ${state.signIn.token}`,
         },
       }
     );
-    setUserPostss(userPosts.data);
+    setUserLikes(userLikes.data);
   };
 
   const goInside = (id) => {
-    navigate(`/home/post/${id}`);
+    navigate(`/Home/post/${id}`);
   };
 
   return (
@@ -68,11 +62,11 @@ const Profile = () => {
       </div>
 
       <div>
-        {userPostss && (
+        {userLikes && (
           <>
-            {userPostss.length ? (
+            {userLikes.length ? (
               <div className="allImg">
-                {userPostss.map((item) => (
+                {userLikes.map((item) => (
                   <>
                     <h4
                       key={item._id}
@@ -88,7 +82,7 @@ const Profile = () => {
                 ))}
               </div>
             ) : (
-              <p className="noPosted">You don't have any post yet ): </p>
+              <p className="noPosted">You don't have any post yet :</p>
             )}
           </>
         )}

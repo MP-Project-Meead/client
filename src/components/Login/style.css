@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Cinzel+Decorative:wght@700&family=Mirza&family=Tajawal:wght@200;900&display=swap");
+
 .describeItem {
- /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  width: 90%; */
- box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; 
- font-family: "Dosis", sans-serif;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  width: 90%; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  font-family: "Dosis", sans-serif;
   font-size: 60px;
   align-items: center;
   text-align: center;
@@ -9,7 +12,7 @@
   width: 600px;
   height: 750px;
   margin-left: 35%;
-  color:#005870;
+  color: #8f7533;
   margin-bottom: 50px;
   border-radius: 30px;
 }
@@ -19,11 +22,14 @@
   margin-top: 100px;
   margin-bottom: 50px;
 }
-.inputs{
-  padding :100px;
+.inputs {
+  padding: 100px;
 }
 .describeItem input {
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;  border-style: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-style: none;
   padding: 5px;
   font-size: 30px;
   border-radius: 3px;
@@ -35,7 +41,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 }
 .LogBtn {
   margin-top: 1%;
-  color: rgb(255, 255, 255);
+  color: #8f7533;
   padding: 6px 20px;
   border-radius: 7px;
   border: none;
@@ -52,9 +58,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 }
 
 .goIcon {
-  color:#005870;
-
-  /* background-color: rgba(192, 146, 102, 0.719); */
+  color: #8f7533;
   font-size: 45px;
 }
 .mesageL {
@@ -64,25 +68,22 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 .forgetPass {
   margin-top: 20px;
   font-size: 25px;
-
 }
 
 .forgetPass:hover {
-cursor: pointer;
-  
+  cursor: pointer;
 }
 .already {
   font-size: 30px;
-  color:#005870;
+  color: #8f7533;
 }
-.Signup{
-      color: #CDAE5D;
-
+.Signup {
+  color: #cdae5d;
 }
 .linkk {
-color:#005870;
+  color: #8f7533;
 }
 
-input{
-color:#005870;
+input {
+  color: #8f7533;
 }

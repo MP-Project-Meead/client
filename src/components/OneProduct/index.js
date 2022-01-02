@@ -18,19 +18,20 @@ const OneProduct = () => {
     setOneProduct(product.data);
   }
   return (
-    <div>
+    <div className="productContainer">
       {oneProduct && oneProduct.length && 
       oneProduct.map((item, index) => {
        return (
-        <div key={index}>
-            <p className="JewelryP1"> {item.name}</p>
-            <img className="OneJewelry" src={item.image} alt="" />
-            <h5> {item.creator}</h5>
-            <h5> {item.size}</h5>
-            <h5> {item.price}</h5>
-            <h6>{item.description}</h6>
-      </div>
-      );
+         <div key={index}>
+           
+           <img className="OneJewelry" src={item.image} alt="" />
+           <p className="JewelryP1"> {item.name}</p>
+           <h5> {item.creator}</h5>
+           <h5> {item.size}</h5>
+           <h5> {item.price}</h5>
+           <h6>{item.description}</h6>
+         </div>
+       );
     })
     
     }

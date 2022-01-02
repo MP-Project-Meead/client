@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import "./style.css";
+import "./style.css";
 
 const Forget = () => {
   let navigate = useNavigate();
-
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] = useState(""); //email or user
   const [message, setMessage] = useState("");
 
   const restPass = async () => {
@@ -16,7 +15,7 @@ const Forget = () => {
     );
     if (result.status === 200) {
       //pass
-      navigate(`/ForgetPassword`);
+      navigate(`/ResetPassword`);
     } else {
       setMessage(result.data);
     }
@@ -32,7 +31,8 @@ const Forget = () => {
         }}
       />
       <button className="forgetBtn" onClick={restPass}>
-        send email
+        {" "}
+        send email{" "}
       </button>
       {message}
     </div>
