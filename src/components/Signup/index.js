@@ -69,17 +69,6 @@ const Signup = () => {
             }}
           />
         </div>
-
-        {/* <div>
-          <input
-            type="text"
-            placeholder="username"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-        </div> */}
-
         <div>
           <input
             type="password"

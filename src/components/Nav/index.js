@@ -23,7 +23,7 @@ const Header = () => {
       userID: "",
     };
     dispatchEvent(logOut(data));
-    navigate(`/`);
+    navigate(`/Home`);
   };
   const goToProfile = () => {
     navigate(`/Profile`);
@@ -38,7 +38,7 @@ const Header = () => {
         <ul>
           {state.signIn.token.length == 0 ? (
             <li className="lie" id="homeNav">
-              <Link className="Signup" to="/signUp">
+              <Link className="link" to="/signUp">
                 Signup
               </Link>
             </li>
@@ -49,15 +49,14 @@ const Header = () => {
               </span>
             </li>
           )}
-          {state.signIn.token.length !== 0 ? (
+          {state.signIn.role === "61c42c3139940ec8e18224d0" && (
             <li className="lie" id="homeNav">
               <span className="iconLogut" onClick={goToProfile}>
                 <BiUserCircle />
               </span>
             </li>
-          ) : (
-            ""
           )}
+
           <li className="lie" id="homeNav">
             <Link className="link" to="/Jewelry">
               Jewelry
@@ -79,10 +78,18 @@ const Header = () => {
             </Link>
           </li>
           <li className="lie" id="homeNav">
-            <Link className="link" to="/">
+            <Link className="link" to="/Home">
               Home
             </Link>
           </li>
+          {state.signIn.role === "61c4248139940ec8e18224cc" && (
+            <li className="lie">
+              <Link id="first" className="link" to="/users">
+                Users
+              </Link>
+            </li>
+          )}
+
           <li className="lie" id="homeNav">
             <Link className="link" to="/FAQs">
               FAQs

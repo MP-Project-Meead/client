@@ -14,13 +14,13 @@
   font-family: 'Cinzel Decorative', cursive;
   display: inline-block;
   margin: 1% 5.5%;
-  /* color: #005870; */
-    color: #8f7533;
-    font-size: 1.12rem;
+  color: #8f7533;
+  font-size: 1rem;
 
 }
 .lie:hover {
   cursor: pointer;
+  
 }
 ​
 #logOut {

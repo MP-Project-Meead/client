@@ -31,7 +31,7 @@ const Users = () => {
 
   const deleteUser = async (userId) => {
     await axios.delete(
-      `${process.env.REACT_APP_BASE_URL}/user/delete/?_id=${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/users/delete/?_id=${userId}`,
       {
         headers: {
           Authorization: `Bearer ${state.signIn.token}`,
@@ -42,7 +42,7 @@ const Users = () => {
   };
 
   const goInside = (id) => {
-    navigate(`/Profile/${id}`);
+    navigate(`/profile/${id}`);
   };
 
   return (

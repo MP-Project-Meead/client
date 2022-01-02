@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-// import "./style.css";
-
+import "./style.css";
+import "antd/dist/antd.css";
+import { Card } from "antd";
 //////////////////////////////////////////////////////////////////
 const Bags = (props) => {
   const [bags, setBags] = useState([]);
-        let navigate = useNavigate();
-
+  let navigate = useNavigate();
+  const { Meta } = Card;
   //////////////////////////////////////////////////////////////////
   const getBags = async () => {
     const product = await axios.get(
@@ -33,34 +33,30 @@ const Bags = (props) => {
   //////////////////////////////////////////////////////////////////
 
   return (
-    <>
-      {bags ? (
-        <div className="oneitemHomeM">
-          <div className="jjj">
+    <div className="container">
+      <div className="bagsContainer">
+        {bags ? (
+          <>
             {bags.map((ele) => {
               return (
                 <>
-                  {console.log(ele.image)}
-                  <p className="BagsP1"> {ele.name}</p>
-                  <img
-                    className="OneBag"
-                    src={ele.image}
-                    alt="bags"
+                  <Card
                     onClick={() => oneProduct(ele._id)}
-                  />
-                  {/* <h5> {ele.creator}</h5>
-                  <h5> {ele.size}</h5>
-                  <h5> {ele.price}</h5>
-                  <h6>{ele.description}</h6> */}
+                    hoverable
+                    style={{ width: 240 }}
+                    cover={<img alt="example" src={ele.image} />}
+                  >
+                    <Meta title={ele.creator} description={ele.name} />
+                  </Card>
                 </>
               );
             })}
-          </div>
-        </div>
-      ) : (
-        <h1>loading ...</h1>
-      )}
-    </>
+          </>
+        ) : (
+          <h1>loading ...</h1>
+        )}
+      </div>
+    </div>
   );
 };
 

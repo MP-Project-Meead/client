@@ -22,7 +22,6 @@ const Home = () => {
         autoPlay={true}
         infiniteLoop={true}
         interval={2000}
-        // showStatus={false}
         thumbWidth={100}
         showIndicators={false}
         showThumbs={false}

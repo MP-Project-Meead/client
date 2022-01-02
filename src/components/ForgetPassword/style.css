@@ -26,17 +26,15 @@
   cursor: pointer;
 }
 .forgett {
-
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
-
-
-   /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-  width: 90%;
   font-family: "Dosis", sans-serif;
   font-size: 60px;
+  display: flex;
   align-items: center;
-  text-align: center; */
+  text-align: center;
+  width: 600px;
+  height: 750px;
+  margin-left: 35%;
+  color: #8f7533;
+  margin-bottom: 50px;
+  border-radius: 30px;
 }

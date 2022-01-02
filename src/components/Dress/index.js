@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import "./style.css";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import "./style.css";
+import "antd/dist/antd.css";
+import { Card } from "antd";
 
 //////////////////////////////////////////////////////////////////
 const Dress = (props) => {
   const [dress, setDress] = useState([]);
     let navigate = useNavigate();
+  const { Meta } = Card;
 
   //////////////////////////////////////////////////////////////////
   const getDress = async () => {
@@ -28,37 +33,34 @@ const oneProduct = (id) => {
 };
 
   //////////////////////////////////////////////////////////////////
+return (
+  <div className="container">
+    <div className="dressContainer">
+      {dress ? (
+        <>
+          {dress.map((ele) => {
+            return (
+               <div className="card">
 
-  return (
-    <>
-      {dress.length ? (
-        <div className="oneitemHomeM">
-          <div className="jjj">
-            {dress.map((ele) => {
-              return (
-                <>
-                  {console.log(ele.image)}
-                  <p className="BagsP1"> {ele.name}</p>
-                  <img
-                    className="OneBag"
-                    src={ele.image}
-                    alt="Dress"
-                    onClick={() => oneProduct(ele._id)}
-                  />
-                  {/* <h5> {ele.creator}</h5>
-                  <h5> {ele.size}</h5>
-                  <h5> {ele.price}</h5>
-                  <h6>{ele.description}</h6> */}
-                </>
-              );
-            })}
-          </div>
-        </div>
+                <Card
+                  onClick={() => oneProduct(ele._id)}
+                  hoverable
+                  style={{ width: 240 }}
+                  cover={<img alt="example" src={ele.image} className="derssCard" />}
+                >
+                  <Meta title={ele.creator} description={ele.name} />
+                </Card>
+              </div>
+            );
+          })}
+        </>
       ) : (
         <h1>loading ...</h1>
       )}
-    </>
-  );
+    </div>
+  </div>
+);
+  
 };
 
 export default Dress;

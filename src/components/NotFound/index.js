@@ -7,8 +7,7 @@ const Notfound = () => {
     <div>
       <h1 className="notFound">404 - Not Found!</h1>
       <button className="notfoundBtn">
-        {" "}
-        <Link className="notFoundLink" to="/home">
+        <Link className="notFoundLink" to="/Home">
           Go Home
         </Link>
       </button>

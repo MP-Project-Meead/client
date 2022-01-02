@@ -16,6 +16,7 @@ import OneProduct from "./components/OneProduct";
 import Profile from "./components/Profile";
 import Users from "./components/Users";
 import OneUser from "./components/OneUser";
+
 import NotFound from "./components/NotFound";
 import FAQs from "./components/FAQs";
 
@@ -29,7 +30,7 @@ const App = () => {
     <>
       <Nav />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/Home" element={<Home />} />
         <Route exact path="/signUp" element={<Signup />} />
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/Jewelry" element={<Jewelry />} />
@@ -38,14 +39,15 @@ const App = () => {
         <Route exact path="/Shoes" element={<Shoes />} />
         <Route exact path="/FAQs" element={<FAQs />} />
         <Route exact path="/Profile" element={<Profile />} />
+        <Route exact path="/product/:id" element={<OneProduct />} />
+
         <Route exact path="/WishList" element={<WishList />} />
         <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
-        <Route exact path="/product/:id" element={<OneProduct />} />
-        <Route exact path="/Users" element={<Users />} />
+        <Route exact path="/ResetPassword" element={<ForgetPassword />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
         <Route exact path="/OneUser" element={<OneUser />} />
-        <Route exact path="/NotFound" element={<NotFound />} />
-        <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
 
+        <Route exact path="/Users" element={<Users />} />
         {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
         {/* <Route exact path="/Reset" element={<Reset />} /> */}
       </Routes>

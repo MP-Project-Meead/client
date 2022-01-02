@@ -1,0 +1,15 @@
+.dressContainer{
+  margin-top: 30%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border-radius: 5px;
+  width: 70rem;
+}
+
+.container{
+  margin-top: 10%;
+}
+.derssCard{
+    width: 300px;
+}

@@ -23,15 +23,17 @@ const Login = () => {
     if (users.status !== 200) {
       setMessage(users.data);
     } else {
+      console.log(users.data);
+      console.log(users.data.result.role._id);
       const data = {
-        role: users.data.result.role,
+        role: users.data.result.role._id,
         token: users.data.token,
         userID: users.data.result._id,
       };
-      console.log("jjjjjjjjjj");
+      // console.log("jjjjjjjjjj");
 
       dispatchEvent(logIn(data));
-      navigate(`/`);
+      navigate(`/Home`);
     }
   };
   const navForget = () => {
@@ -73,7 +75,7 @@ const Login = () => {
         <div className="already">
           Don't have an account?
           <Link className="linkk" to="/signUp">
-            Sign up{" "}
+            Sign up
           </Link>
         </div>
 
