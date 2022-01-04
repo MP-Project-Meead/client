@@ -3,6 +3,7 @@ const initialState = {
   token: "",
   userID: "",
 };
+//////////////////////////////////////////////////////////////////////////
 
 const signIn = (state = initialState, action) => {
   const { type, payload } = action;
@@ -29,8 +30,9 @@ const signIn = (state = initialState, action) => {
       return state;
   }
 };
-
 export default signIn;
+
+//////////////////////////////////////////////////////////////////////////
 
 export const logIn = (data) => {
   return {
@@ -38,6 +40,7 @@ export const logIn = (data) => {
     payload: data,
   };
 };
+/////////////////////////////////////////////////////////////////////////
 
 export const logOut = (data) => {
   return { type: "LOGOUT", payload: {} };
