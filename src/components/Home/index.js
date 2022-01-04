@@ -15,6 +15,17 @@ import Video from "../../video/video.mp4";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 const Home = () => {
+  // const getAllProperties = async () => {
+  //   const Propertie = await axios.post(
+  //     `${process.env.REACT_APP_BASE_URL}/property/searchProperty`,
+  //     { name: search }
+  //   );
+  //   setProperties(Propertie.data);
+  // };
+  // useEffect(() => {
+  //   getAllProperties();
+  // }, [search]);
+
   return (
     <div>
       <Carousel

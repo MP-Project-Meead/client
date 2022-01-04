@@ -12,7 +12,6 @@ const Dress = (props) => {
   const [dress, setDress] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
-
   //////////////////////////////////////////////////////////////////
   const getDress = async () => {
     const product = await axios.get(

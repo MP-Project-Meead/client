@@ -45,8 +45,8 @@ const Shoes = (props) => {
                   <Card
                     onClick={() => oneProduct(ele._id)}
                     hoverable
-                    style={{ width: 240 }}
-                    cover={<img alt="example" src={ele.image} />}
+                    style={{ width: 300 }}
+                    cover={<img alt="example" src={ele.image} width="100% n" />}
                   >
                     <Meta title={ele.creator} description={ele.name} />
                   </Card>

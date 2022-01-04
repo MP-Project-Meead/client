@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./style.css";
+import { Spinner, Stack, Divider, Center } from "@chakra-ui/react";
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 const Users = () => {
+  
   let navigate = useNavigate();
   const [allUsers, setAllUsers] = useState([]);
 
@@ -31,7 +35,7 @@ const Users = () => {
 
   const deleteUser = async (userId) => {
     await axios.delete(
-      `${process.env.REACT_APP_BASE_URL}/users/delete/?_id=${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/user/delete/?_id=${userId}`,
       {
         headers: {
           Authorization: `Bearer ${state.signIn.token}`,
@@ -47,6 +51,11 @@ const Users = () => {
 
   return (
     <div className="usersContener">
+      <h1 className="UsersText"> Users</h1>
+      <Center height="50px">
+        <Divider orientation="vertical" h="100px"/>
+      </Center>
+
       {allUsers &&
         allUsers.map((ele) => {
           return (
@@ -61,9 +70,6 @@ const Users = () => {
                   }}
                 />
               </div>
-              {/* <div className="imgContener">
-              <img className="imgg" src={post[0].postedBy.img} />
-            </div> */}
 
               <h4
                 className="userName"
@@ -84,7 +90,11 @@ const Users = () => {
           );
         })}
 
-      {!allUsers.length && <h2>there is no user or you are forbidden</h2>}
+      {!allUsers.length && (
+        <Stack direction="row" spacing={4}>
+          <Spinner size="xl" />
+        </Stack>
+      )}
     </div>
   );
 };

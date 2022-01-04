@@ -4,7 +4,10 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
+.UsersText{
+color: #CDAE5D;
+font-size: 50px;
+}
 .userss {
   border: 0.5px solid rgba(192, 146, 102, 0.719);
   border-radius: 10px;

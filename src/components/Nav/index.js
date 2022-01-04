@@ -6,7 +6,8 @@ import { BiUserCircle } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { logOut } from "../../reducers/login";
 import { useDispatch } from "react-redux";
-// import logo from "../../image/Brown_Sugar_copy_2-removebg-preview (1).png";
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
 const Header = () => {
   let navigate = useNavigate();
@@ -27,12 +28,11 @@ const Header = () => {
   };
   const goToProfile = () => {
     navigate(`/Profile`);
-  }
+  };
 
   return (
     <>
       <div className="nav">
-        {/* <img alt="img" className="logo" src={logo} /> */}
         <h1 className="luxury">Luxury</h1>
 
         <ul>
@@ -56,7 +56,11 @@ const Header = () => {
               </span>
             </li>
           )}
-
+          <li className="lie" id="homeNav">
+            <Link className="link" to="/FAQs">
+              FAQs
+            </Link>
+          </li>
           <li className="lie" id="homeNav">
             <Link className="link" to="/Jewelry">
               Jewelry
@@ -84,17 +88,18 @@ const Header = () => {
           </li>
           {state.signIn.role === "61c4248139940ec8e18224cc" && (
             <li className="lie">
-              <Link id="first" className="link" to="/users">
-                Users
+              <Link id="first" className="link" to="/Dashboard">
+                Dashboard
               </Link>
             </li>
           )}
-
-          <li className="lie" id="homeNav">
-            <Link className="link" to="/FAQs">
-              FAQs
-            </Link>
-          </li>
+          {state.signIn.role === "61c4248139940ec8e18224cc" && (
+            <li className="lie">
+              <Link id="first" className="link" to="/NewProduct">
+                NewProduct
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </>

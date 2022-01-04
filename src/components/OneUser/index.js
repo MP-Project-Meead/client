@@ -1,25 +1,29 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
-// import "./style.css";
+// // import "./style.css";
 // import { useNavigate, useParams } from "react-router-dom";
 // import { useSelector } from "react-redux";
+// ////////////////////////////////////////////////////////////////////////
+
 
 // const OneUser = () => {
-//   const id = useParams().id;
 
+//   const id = useParams().id;
 //   let navigate = useNavigate();
 //   const state = useSelector((state) => {
 //     return state;
 //   });
 //   const [user, setuser] = useState([]);
-//   const [userPostss, setUserPostss] = useState([]);
+//   const [userLikes, setUserLikes] = useState([]);
 //   useEffect(() => {
 //     getUser();
 //   }, []);
+  
+//   /////////////////////////////////////////////////////////////////////
 
 //   const getUser = async () => {
 //     const user = await axios.get(
-//       `${process.env.REACT_APP_BASE_URL}/users/${id}`,
+//       `${process.env.REACT_APP_BASE_URL}/user/${id}`,
 //       {
 //         headers: {
 //           Authorization: `Bearer ${state.signIn.token}`,
@@ -28,20 +32,27 @@
 //     );
 //     setuser(user.data);
 
-//     const userPosts = await axios.get(
-//       `${process.env.REACT_APP_BASE_URL}/posts/userPost/${id}`,
+//     /////////////////////////////////////////////////////////////////////
+
+//     const userLike = await axios.get(
+//       `${process.env.REACT_APP_BASE_URL}/likes/${id}`,
 //       {
 //         headers: {
 //           Authorization: `Bearer ${state.signIn.token}`,
 //         },
 //       }
 //     );
-//     setUserPostss(userPosts.data);
+//     setUserLikes(userLike.data);
 //   };
+  
+//   ////////////////////////////////////////////////////////////////////////
 
 //   const goInside = (id) => {
-//     navigate(`/home/post/${id}`);
+//     navigate(`/Home/post/${id}`);
 //   };
+
+
+//   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //   return (
 //     <>
@@ -74,7 +85,7 @@
 //                     className="profileDes"
 //                     onClick={() => goInside(item._id)}
 //                   >
-//                     {item.describe}{" "}
+//                     {item.describe}
 //                   </h4>
 //                 ))}
 //               </div>
