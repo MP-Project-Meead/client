@@ -9,7 +9,7 @@ import Jewelry from "./components/Jewelry";
 import Bags from "./components/Bags";
 import Dress from "./components/Dress";
 import Shoes from "./components/Shoes";
-import WishList from "./components/WishList";
+import Cart from "./components/Cart";
 import ForgetPassword from "./components/ForgetPassword";
 import OneProduct from "./components/OneProduct";
 import Profile from "./components/Profile";
@@ -41,13 +41,12 @@ const App = () => {
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/product/:id" element={<OneProduct />} />
         <Route exact path="/OneUser" element={<OneUser />} />
-        <Route exact path="/WishList" element={<WishList />} />
+        <Route exact path="/Cart" element={<Cart />} />
         <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
         <Route exact path="/ResetPassword" element={<ForgetPassword />} />
         <Route exact path="/NewProduct" element={<NewProduct />} />
         <Route exact path="/Dashboard" element={<Dashboard />} />
 
-        
         {/* <Route path="*" element={<NotFound />} /> */}
         {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
         {/* <Route exact path="/Reset" element={<Reset />} /> */}

@@ -26,7 +26,7 @@
 //       `${process.env.REACT_APP_BASE_URL}/user/${id}`,
 //       {
 //         headers: {
-//           Authorization: `Bearer ${state.signIn.token}`,
+//                  Authorization: `Bearer ${state.signIn.token}`,
 //         },
 //       }
 //     );

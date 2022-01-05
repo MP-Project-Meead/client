@@ -56,6 +56,13 @@ const Header = () => {
               </span>
             </li>
           )}
+          {state.signIn.role === "61c42c3139940ec8e18224d0" && (
+            <li className="lie" id="homeNav">
+              <Link className="link" to="/Cart">
+                Cart
+              </Link>
+            </li>
+          )}
           <li className="lie" id="homeNav">
             <Link className="link" to="/FAQs">
               FAQs

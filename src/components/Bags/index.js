@@ -31,7 +31,7 @@ const Bags = (props) => {
   };
 
   //////////////////////////////////////////////////////////////////
-
+console.log(bags);
   return (
     <div className="container">
       <div className="bagsContainer">
@@ -40,14 +40,16 @@ const Bags = (props) => {
             {bags.map((ele) => {
               return (
                 <>
+                {console.log(ele.image)}
                   <Card
                     onClick={() => oneProduct(ele._id)}
                     hoverable
                     style={{ width: 240 }}
-                    cover={<img alt="example" src={ele.image} />}
+                    cover={<img alt="example" src={ele.image[0]} />}
                   >
                     <Meta title={ele.creator} description={ele.name} />
                   </Card>
+                  
                 </>
               );
             })}
