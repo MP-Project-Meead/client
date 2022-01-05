@@ -35,13 +35,14 @@ const Users = () => {
 
   const deleteUser = async (userId) => {
     await axios.delete(
-      `${process.env.REACT_APP_BASE_URL}/user/delete/?_id=${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/user/delete/${userId}`,
       {
         headers: {
           Authorization: `Bearer ${state.signIn.token}`,
         },
       }
     );
+    
     getAllUsers();
   };
 
