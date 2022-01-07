@@ -5,6 +5,7 @@ import "./style.css";
 import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { useNavigate } from "react-router-dom";
+import { Button, Form, Stack, Input } from "@chakra-ui/react";
 
 const Download = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Download = () => {
   const [product, setProduct] = useState([[]]);
   const [progress, setProgress] = useState(0);
   const [images, setImages] = useState([]);
-  const { Formik } = formik;
+  // const { Formik } = formik;
 
   /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -54,17 +55,17 @@ const Download = () => {
 
   const addProduct = async (e) => {
     e.preventDefault();
-    console.log(e.target.ingridents.value);
+    // console.log(e.target.category.value);
     const result = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/product/create`,
 
       {
-        category: e.target.category.value, 
+        category: e.target.category.value,
         name: e.target.name.value,
         image: images,
-        gender: e.target.gender.value, 
+        gender: e.target.gender.value,
         description: e.target.description.value,
-        creator: e.target.creator.value, 
+        creator: e.target.creator.value,
         size: e.target.size.value,
         price: e.target.size.value,
       },
@@ -76,20 +77,19 @@ const Download = () => {
 
   /////////////////////////////////////////////////////////////////////////////////////////
 
-  const updateIngredient = (e, index) => {
-      
-    const myIngre = [...add];
-    myIngre[index] = e.target.value;
-    setAddAnother(myIngre);
-  };
-//   const updaterecepe = (e, index) => {
-//     const myIngre = [...product];
-//     myIngre[index] = e.target.value;
-//     setProduct(myIngre);
-//   };
+  // const updateIngredient = (e, index) => {
+  //   const myIngre = [...add];
+  //   myIngre[index] = e.target.value;
+  //   setAddAnother(myIngre);
+  // };
+  //   const updaterecepe = (e, index) => {
+  //     const myIngre = [...product];
+  //     myIngre[index] = e.target.value;
+  //     setProduct(myIngre);
+  //   };
 
   useEffect(() => {
-    console.log(product);
+    // console.log(product);
   }, [product]);
 
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -97,25 +97,52 @@ const Download = () => {
   return (
     <div className="download">
       <form onSubmit={addProduct}>
-        <label className="modelDes">category</label>
-        <input name="category" type="text" placeholder="category" />
-        <label className="modelDes">name</label>
-        <input name="name" type="text" placeholder="name" />
-        <label className="modelDes">gender</label>
-        <input name="gender" type="text" placeholder="gender" />
-        <label className="modelDes">description</label>
-        <input name="description" type="text" placeholder="description" />
-        <label className="modelDes">creator</label>
-        <input name="creator" type="text" placeholder="creator" />
-        <label className="modelDes">size</label>
-        <input name="size" type="text" placeholder="size" />
-        <label className="modelDes">price</label>
-        <input name="price" type="text" placeholder="price" />
+        <Stack spacing={3} >
+          <Input
+            variant="outline"
+            name="category"
+            type="text"
+            placeholder="category"
+            htmlFor="first-name"
+          />
+          <Input variant="outline" name="name" type="text" placeholder="name" />{" "}
+          <Input
+            variant="outline"
+            name="gender"
+            type="text"
+            placeholder="gender"
+          />{" "}
+          <Input
+            variant="outline"
+            name="description"
+            type="text"
+            placeholder="description"
+          />{" "}
+          <Input
+            variant="outline"
+            type="text"
+            name="creator"
+            placeholder="creator"
+          />{" "}
+          <Input variant="outline" name="size" type="text" placeholder="size" />{" "}
+          <Input
+            variant="outline"
+            name="price"
+            type="text"
+            placeholder="price"
+          />{" "}
+        </Stack>
 
         <label className="modelDes">image</label>
-
-        <div className="upload">
-          <input
+        <div
+          as="button"
+          borderRadius="md"
+          bg="tomato"
+          color="white"
+          px={200}
+          h={200}
+        >
+          <Input
             type="file"
             accept=".gif,.jpg,.jpeg,.png"
             onChange={(e) => {
@@ -123,8 +150,7 @@ const Download = () => {
             }}
             id="img"
             style={{ display: "none" }}
-          />
-
+          />{" "}
           <label htmlFor="img">upload image</label>
           {!(progress == 0) ? (
             <div className="progress">
@@ -133,31 +159,15 @@ const Download = () => {
           ) : null}
         </div>
 
-
-        <div className="imagesPost">
+        <div>
           {images?.map((image) => (
             <img src={image} width="80px" height="80px" />
           ))}
         </div>
-        {/* <label className="modelDes">ingridents</label> */}
 
-        {add.map((i, index) => (
-          <input
-            name="ingridents"
-            type="text"
-            placeholder="ingridents"
-            onChange={(e) => updateIngredient(e, index)}
-          ></input>
-        ))}
-        
-        <br />
-        <button onClick={() => navigate("/myprofile")} type="button">
-          رجوع
-        </button>
-
-        <button className="submitBtn" type="submit">
+        <Button className="submitBtn" type="submit">
           submit
-        </button>
+        </Button>
       </form>
     </div>
   );

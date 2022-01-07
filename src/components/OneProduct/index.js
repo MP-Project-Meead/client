@@ -13,6 +13,7 @@ import {
   StatLabel,
   StatNumber,
   StatHelpText,
+  
 } from "@chakra-ui/react";
 
 /////////////////////////////////////////////////////
@@ -153,23 +154,14 @@ const OneProduct = () => {
                   </Box>
 
                   <button
-                    className="bttn"
+                    className="deleteBtn"
                     onClick={() => addToCart(oneProduct._id)}
-                  >
-                    {/* <BsCartPlusFill /> */}
-                    اضف للسله
+                  > Add to wishList
                   </button>
                 </Box>
               </Flex>
             </Center>
-            {/* {comments.length &&
-              comments.map((item) => (
-                <div key={item._id}>
-                  <p>{item.byUser.username}</p>
-                  <p>{item.description}</p>
-                  
-                </div>
-              ))} */}
+            
           </>
         )}
       </>
@@ -179,20 +171,3 @@ const OneProduct = () => {
 
 export default OneProduct;
 
-// const giveLike = () => {
-//   axios
-//     .post(
-//       `${process.env.REACT_APP_BASE_URL}/addLike`,
-//       {
-//         postId: param.id,
-//       },
-//       { headers: { Authorization: `Bearer ${state.Login.token}` } }
-//     )
-//     .then((response) => {
-//       console.log(response.data);
-//       getPostes();
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };

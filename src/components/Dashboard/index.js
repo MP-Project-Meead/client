@@ -3,7 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./style.css";
-import { Spinner, Stack, Divider, Center } from "@chakra-ui/react";
+import {
+  Spinner,
+  Stack,
+  Divider,
+  Center,
+  Flex,
+  Avatar,
+  Box,
+  Text,Badge
+} from "@chakra-ui/react";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -61,8 +70,8 @@ const Users = () => {
         allUsers.map((ele) => {
           return (
             <div key={ele._id} className="userss">
-              <div className="imgContener0">
-                <img
+              <Flex className="imgContener0">
+                <Avatar
                   className="img3"
                   src={ele.img}
                   alt="img"
@@ -70,23 +79,28 @@ const Users = () => {
                     goInside(ele._id);
                   }}
                 />
-              </div>
-
-              <h4
-                className="userName"
-                onClick={() => {
-                  goInside(ele._id);
-                }}
-              >
-                {ele.username}
-              </h4>
-              <button
-                className="deleteBtn2"
-                onClick={() => deleteUser(ele._id)}
-              >
-                {" "}
-                delete{" "}
-              </button>
+                <Box ml="3">
+                  <Text
+                    fontWeight="bold"
+                    className="userName"
+                    onClick={() => {
+                      goInside(ele._id);
+                    }}
+                  >
+                    {ele.username}
+                    <Badge ml="1" colorScheme="green">
+                      New
+                    </Badge>
+                  </Text>
+                  <button
+                    className="deleteBtn2"
+                    onClick={() => deleteUser(ele._id)}
+                  >
+                    {" "}
+                    delete{" "}
+                  </button>
+                </Box>
+              </Flex>
             </div>
           );
         })}

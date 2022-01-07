@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { Card } from "antd";
 
 
+
 // const BASE_URL = "https://project2back.herokuapp.com";
 
 const Cart = () => {
@@ -35,6 +36,9 @@ const Cart = () => {
   };
   const goInside = (id) => {
     navigate(`/product/${id}`);
+  };
+  const PayItem = (id) => {
+    navigate(`/Payment/${id}`);
   };
   /////////////////////////////////////////////////////////////
 
@@ -81,6 +85,7 @@ const Cart = () => {
                   <Meta title={ele.creator} description={ele.name} />
                 </Card>
                 <Card onClick={() => deleteItem(ele._id)}>Delete</Card>
+                <Card onClick={() => PayItem(ele._id)}>Pay</Card>
               </div>
             );
           })}

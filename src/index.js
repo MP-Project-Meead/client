@@ -5,14 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import store from "./reducers";
 import { Provider } from "react-redux";
 import { ChakraProvider } from "@chakra-ui/react";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 ReactDOM.render(
   <Provider store={store}>
-    <ChakraProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ChakraProvider>
+      <ChakraProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
   </Provider>,
+
   document.getElementById("root")
 );
