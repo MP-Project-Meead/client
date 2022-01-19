@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-import "antd/dist/antd.css";
 import { Card } from "antd";
 import { Spinner } from "@chakra-ui/react";
 
@@ -19,7 +17,7 @@ const Shoes = (props) => {
       `${process.env.REACT_APP_BASE_URL}/product/`
     );
     console.log(product, "product");
-    setShoes(product.data.filter((elem) => elem.category == "Heels"));
+    setShoes(product.data.filter((elem) => elem.category === "Heels"));
   };
 
   //////////////////////////////////////////////////////////////////

@@ -6,13 +6,10 @@ import Female from "./../Female";
 import photo1 from "../../image/Catier2.webp";
 import photo2 from "../../image/Catier.png";
 import photo4 from "../../image/بولقري4.png";
-// import homeimage1 from "../../image/images.png";
 import photo5 from "../../image/AA.webp";
-import photo6 from "../../image/LV2.png";
 import photo7 from "../../image/Model Man.jpeg";
 import photo8 from "../../image/CartierModel.jpeg";
 
-// import Button from "react-bootstrap/Button";
 import Video from "../../video/video.mp4";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader

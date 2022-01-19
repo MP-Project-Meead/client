@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 // import Search from "../Search"
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 
@@ -29,7 +29,7 @@ const Bags = (props) => {
       `${process.env.REACT_APP_BASE_URL}/product/`
     );
     console.log(product, "product");
-    setBags(product.data.filter((ele) => ele.category == "Bag"));
+    setBags(product.data.filter((ele) => ele.category === "Bag"));
   };
 
   ///////////////////////////{  useEffect  }///////////////////////////////////////

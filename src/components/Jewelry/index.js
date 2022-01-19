@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 
@@ -21,7 +21,7 @@ const state = useSelector((state) => {
       `${process.env.REACT_APP_BASE_URL}/product/`
     ); 
     console.log(product , "product");
-    setJewelry(product.data.filter((elem) => elem.category == "Jewelry"));
+    setJewelry(product.data.filter((elem) => elem.category === "Jewelry"));
 
   };
 

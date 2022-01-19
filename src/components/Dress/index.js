@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+
 import "./style.css";
-import "antd/dist/antd.css";
 import { Card } from "antd";
 
 //////////////////////////////////////////////////////////////////
@@ -18,7 +16,7 @@ const Dress = (props) => {
       `${process.env.REACT_APP_BASE_URL}/product/`
     );
     console.log(product, "product");
-    setDress(product.data.filter((ele) => ele.category == "Dress"));
+    setDress(product.data.filter((ele) => ele.category === "Dress"));
   };
 
   //////////////////////////////////////////////////////////////////
