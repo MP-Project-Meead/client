@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import {Input} from "@chakra-ui/react"
+/////////////////////////////////////////////////////////////////////////////////////////
 const Forget = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState(""); //email or user
   const [message, setMessage] = useState("");
+  /////////////////////////////////////////////////////////////////////////////////////////
 
   const restPass = async () => {
     const result = await axios.put(
@@ -15,25 +18,29 @@ const Forget = () => {
     );
     if (result.status === 200) {
       //pass
-      navigate(`/ResetPassword`);
+      navigate(`/ResetPssword`);
     } else {
       setMessage(result.data);
     }
   };
+  /////////////////////////////////////////////////////////////////////////////////////////
+
   return (
-    <div className="forgett">
-      <input
-        className="forgetInput"
-        type="text"
-        placeholder="email"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <button className="forgetBtn" onClick={restPass}>
-        {" "}
-        send email{" "}
-      </button>
+    <div className="forgetPasswordPage">
+      <div className="forgetPassworContent">
+        <Input
+          size="lg"
+          className="InputforgetPassword"
+          type="email"
+          placeholder=" Enter Your Email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button>
+          <BsFillArrowRightCircleFill className="goIcon" onClick={restPass} />
+        </button>
+      </div>
       {message}
     </div>
   );

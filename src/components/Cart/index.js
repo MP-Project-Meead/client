@@ -6,7 +6,9 @@ import ImageListItem from "@mui/material/ImageListItem";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { Card } from "antd";
-
+import { BsFillTrashFill } from "react-icons/bs";
+import { SiApplepay } from "react-icons/si";
+import { Spinner, Stack } from "@chakra-ui/react";
 
 
 // const BASE_URL = "https://project2back.herokuapp.com";
@@ -18,10 +20,12 @@ const Cart = () => {
   const state = useSelector((state) => {
     return state;
   });
+
   const [userCart, setUserCart] = useState();
   useEffect(() => {
     getUserCart();
   }, []);
+
   const getUserCart = async () => {
     const cart = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/userCart`,
@@ -43,20 +47,19 @@ const Cart = () => {
   /////////////////////////////////////////////////////////////
 
   const deleteItem = async (id) => {
-    console.log(id);
+    console.log(state.signIn.token);
     try {
       const result = await axios.put(
-        `${process.env.REACT_APP_BASE_URL}/product/deleteFromCart`,
-        { _id : id },
-      
+        `${process.env.REACT_APP_BASE_URL}/product/deleteFromCart/${id}`,
+        {},
         {
           headers: {
             Authorization: `Bearer ${state.signIn.token}`,
           },
         }
       );
-    getUserCart();
-      console.log(result.data.cart);
+      console.log(result.data);
+      getUserCart();
       // setCart(result.data.cart)
     } catch (error) {
       console.log(error);
@@ -83,15 +86,25 @@ const Cart = () => {
                   }
                 >
                   <Meta title={ele.creator} description={ele.name} />
+                  <div className="iconDelAndPay">
+                    <BsFillTrashFill
+                      onClick={() => deleteItem(ele._id)}
+                      className="hhh"
+                    />
+                    <SiApplepay
+                      onClick={() => PayItem(ele._id)}
+                      className="hhh"
+                    />
+                  </div>
                 </Card>
-                <Card onClick={() => deleteItem(ele._id)}>Delete</Card>
-                <Card onClick={() => PayItem(ele._id)}>Pay</Card>
               </div>
             );
           })}
         </>
       ) : (
-        <h1>loading ...</h1>
+        <Stack direction="row" spacing={4}>
+          <Spinner size="xl" />
+        </Stack>
       )}
     </div>
   );

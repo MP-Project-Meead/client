@@ -75,6 +75,8 @@ const Login = () => {
         </button>
         <div className="already">
           Don't have an account?
+          <br />
+          <br />
           <Link className="linkk" to="/signUp">
             Sign up
           </Link>

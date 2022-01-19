@@ -1,6 +1,7 @@
- .download {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-   
+.download {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   font-family: "Dosis", sans-serif;
   font-size: 30px;
   align-items: center;
@@ -10,23 +11,21 @@
   margin-top: 5%;
   width: 600px;
   height: 600px;
-  margin-left: 35%;
+  margin-left: 30%;
   color: #8f7533;
   margin-bottom: 50px;
-  border-radius: 30px;
-
-}  
- .allInputs{
-   margin-top: 20px;
- }
-.GoBackBtn{
+  border-radius: 5px;
+}
+.allInputs {
+  margin-top: 20px;
+}
+.GoBackBtn {
   color: #8f7533;
 }
-.modelDes{
+.modelDes {
   margin-left: 3%;
-  margin-top:10%;
+  margin-top: 10%;
 }
-.upload{
-  margin-top:10%;
-
+.upload {
+  margin-top: 10%;
 }

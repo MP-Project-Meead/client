@@ -15,6 +15,7 @@ import {
   StatHelpText,
   
 } from "@chakra-ui/react";
+import { BsFillTrashFill, AiOutlineShoppingCart } from "react-icons/ai";
 
 /////////////////////////////////////////////////////
 
@@ -102,7 +103,7 @@ const OneProduct = () => {
       <>
         {oneProduct && (
           <>
-            <Center>
+            <Center className="flex">
               <Flex
                 alignItems="center"
                 justifyContent="center"
@@ -121,7 +122,7 @@ const OneProduct = () => {
                   roundedTop="lg"
                 >
                   <Image
-                    src={oneProduct.image}
+                    src={oneProduct.image[1]}
                     objectFit="cover"
                     alt="img of user"
                     layout="fill"
@@ -152,16 +153,17 @@ const OneProduct = () => {
                   <Box>
                     <p>{oneProduct.description}</p>
                   </Box>
-
-                  <button
-                    className="deleteBtn"
-                    onClick={() => addToCart(oneProduct._id)}
-                  > Add to wishList
-                  </button>
+                  {state.signIn.role === "61c42c3139940ec8e18224d0" && (
+                    <button
+                      className="deleteBtn"
+                      onClick={() => addToCart(oneProduct._id)}
+                    >
+                      <AiOutlineShoppingCart className="carticon"/>
+                    </button>
+                  )}
                 </Box>
               </Flex>
             </Center>
-            
           </>
         )}
       </>

@@ -5,56 +5,26 @@
   padding: 0;
 }
 .nav {
-  /* background-color: rgba(0, 0, 0, 0.329); */
   position: relative;
   z-index: 1;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px ,rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.lie {
+.lie{
   font-family: 'Cinzel Decorative', cursive;
   display: inline-block;
-  margin: 1% 5.5%;
+  margin: 1% 4.5%;
   color: #8f7533;
   font-size: 1rem;
 
 }
-.lie:hover {
-  cursor: pointer;
-  
-}
-​
-#logOut {
-  display: inline-block;
-}
-#logOut:hover {
-  cursor: pointer;
-}
-​
-.link {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  color: white;
-}
-​
-#logo {
-  margin-right: 35%;
-}
-.iconLogut{
-  font-size: 30px;
-  margin-top:40px ;
+.icons{
+  font-size: 20px;
+  margin-top: 30px;
 }
 
-.logo{
-  margin-left: 40%;
-  width: 300px;
-  height: 200px;
-}
 .luxury{
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 100px;
+  font-size: 5rem;
   margin-left: 40%;
-  /* color: #005870; */
   color: #CDAE5D;
-
-
 }

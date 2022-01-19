@@ -1,0 +1,11 @@
+.resetPassworContent1{
+  margin-top: 20%;
+  display: grid; 
+  justify-content:space-evenly;
+  align-items: center;
+}
+.ResetBtn{
+    background-color: #c2a14e;
+
+    color:white
+}

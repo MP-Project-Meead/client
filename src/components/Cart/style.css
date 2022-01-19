@@ -1,0 +1,18 @@
+/* .iconDelAndPay{
+    display: flex;
+    justify-content: ;
+    align-items: center;
+} */
+.photosContner{
+    margin-top: 5%;
+}
+.iconDelAndPay{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.hhh{
+    font-size: 20px;
+    color: #8f7533;
+}

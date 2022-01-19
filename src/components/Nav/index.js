@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import "./style.css";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { logOut } from "../../reducers/login";
 import { useDispatch } from "react-redux";
+import { FaUsers } from "react-icons/fa";
+import { AiOutlineFileAdd } from "react-icons/ai";
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 const Header = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   let navigate = useNavigate();
   const dispatchEvent = useDispatch();
-
   const state = useSelector((state) => {
     return state;
   });
-
+  const toggle = ()=> {
+    setDropdownOpen(!dropdownOpen);
+  }
   const logout = () => {
     const data = {
       role: "",
@@ -43,17 +48,31 @@ const Header = () => {
               </Link>
             </li>
           ) : (
-            <li className="lie">
-              <span className="iconLogut" onClick={logout}>
+            <li className="lie icons">
+              <span onClick={logout}>
                 <AiOutlineLogout />
               </span>
             </li>
           )}
           {state.signIn.role === "61c42c3139940ec8e18224d0" && (
-            <li className="lie" id="homeNav">
+            <li className="lie icons">
               <span className="iconLogut" onClick={goToProfile}>
                 <BiUserCircle />
               </span>
+            </li>
+          )}
+          {state.signIn.role === "61c4248139940ec8e18224cc" && (
+            <li className="lie icons">
+              <Link id="first" className="link" to="/Dashboard">
+                <FaUsers />
+              </Link>
+            </li>
+          )}
+          {state.signIn.role === "61c4248139940ec8e18224cc" && (
+            <li className="lie icons">
+              <Link to="/NewProduct">
+                <AiOutlineFileAdd />
+              </Link>
             </li>
           )}
           {state.signIn.role === "61c42c3139940ec8e18224d0" && (
@@ -63,11 +82,7 @@ const Header = () => {
               </Link>
             </li>
           )}
-          <li className="lie" id="homeNav">
-            <Link className="link" to="/FAQs">
-              FAQs
-            </Link>
-          </li>
+
           <li className="lie" id="homeNav">
             <Link className="link" to="/Jewelry">
               Jewelry
@@ -93,24 +108,12 @@ const Header = () => {
               Home
             </Link>
           </li>
-          {state.signIn.role === "61c4248139940ec8e18224cc" && (
-            <li className="lie">
-              <Link id="first" className="link" to="/Dashboard">
-                Dashboard
-              </Link>
-            </li>
-          )}
-          {state.signIn.role === "61c4248139940ec8e18224cc" && (
-            <li className="lie">
-              <Link id="first" className="link" to="/NewProduct">
-                NewProduct
-              </Link>
-            </li>
-          )}
         </ul>
       </div>
     </>
   );
 };
+
+
 
 export default Header;

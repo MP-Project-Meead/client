@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import "antd/dist/antd.css";
 import { Card } from "antd";
+import { useSelector } from "react-redux";
+
 
 //////////////////////////////////////////////////////////////////
 const Jewelry = (props) => {
     let navigate = useNavigate();
   const [jewelry, setJewelry] = useState([]);
  const { Meta } = Card;
-
+const state = useSelector((state) => {
+  return state;
+});
   //////////////////////////////////////////////////////////////////
   const getJewelry = async () => {
     const product = await axios.get(
@@ -32,7 +36,19 @@ const Jewelry = (props) => {
     navigate(`/product/${id}`);
   };
 
+const deleteProduct = async (id) => {
+    console.log(id);
+    await axios.delete(
+      `${process.env.REACT_APP_BASE_URL}/product/delete/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${state.signIn.token}`,
+        },
+      }
+    );
 
+    getJewelry();
+  };
   //////////////////////////////////////////////////////////////////
   
 
@@ -50,6 +66,13 @@ const Jewelry = (props) => {
                   cover={<img alt="example" src={ele.image} />}
                 >
                   <Meta title={ele.creator} description={ele.name} />
+                   {
+                      state.signIn.role === "61c4248139940ec8e18224cc" && (
+                        <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
+                          delete
+                        </button>
+                      )
+                    }
                 </Card>
               </div>
             );

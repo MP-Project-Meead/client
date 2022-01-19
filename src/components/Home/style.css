@@ -1,11 +1,11 @@
 .backImg {
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 600px;
 }
 .propertyImges {
   width: 100%;
-  height: 700px;
+  height: 550px;
 }
 .paragraph {
   height: 100%;
@@ -24,6 +24,7 @@
   width: 80%;
   height: 700px;
   margin-left: 8%;
+  margin-bottom: 10%;
 }
 
 .imageHome1 {
@@ -39,4 +40,31 @@
 .LVImage {
   height: 400px;
   width: 900px;
+}
+.MaleDiv{
+margin-left: 20% ;
+  width:800px;
+  height: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ModelMale{
+  border-radius: 10px;
+  height: 500px;
+  width: 300px;
+}
+.KindMale{
+  margin-top: 5%;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 30px;
+  margin-left: 27%;
+color: #8f7533;}
+
+.KindFemale{
+  margin-top: 5%;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 30px;
+  margin-left: 55%;
+color: #8f7533;
 }

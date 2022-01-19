@@ -11,20 +11,15 @@ import Dress from "./components/Dress";
 import Shoes from "./components/Shoes";
 import Cart from "./components/Cart";
 import ForgetPassword from "./components/ForgetPassword";
+import ResetPssword from "./components/ResetPssword";
 import OneProduct from "./components/OneProduct";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
 import OneUser from "./components/OneUser";
-// import NotFound from "./components/NotFound";
-import FAQs from "./components/FAQs";
 import NewProduct from "./components/NewProduct";
 import Payment from "./components/Payment";
 import SuccessPay from "./components/SuccessPay";
 
-
-// import Footer from "./components/Footer";
-// import Reset from "./components/Reset";
-// import NotFoundUn from "./components/NotFoundUn";
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 const App = () => {
@@ -40,7 +35,6 @@ const App = () => {
         <Route exact path="/Bags" element={<Bags />} />
         <Route exact path="/Dress" element={<Dress />} />
         <Route exact path="/Shoes" element={<Shoes />} />
-        <Route exact path="/FAQs" element={<FAQs />} />
         <Route exact path="/Profile" element={<Profile />} />
         <Route exact path="/product/:id" element={<OneProduct />} />
         <Route exact path="/OneUser" element={<OneUser />} />
@@ -51,7 +45,8 @@ const App = () => {
         <Route exact path="/Dashboard" element={<Dashboard />} />
         <Route exact path="/Payment/:id" element={<Payment />} />
         <Route exact path="/SuccessPay/:id" element={<SuccessPay />} />
-
+        <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
+        <Route exact path="/ResetPssword" element={<ResetPssword />} />
         {/* <Route path="*" element={<NotFound />} /> */}
         {/* <Route exact path="/NotFoundUn" element={<NotFoundUn />} /> */}
         {/* <Route exact path="/Reset" element={<Reset />} /> */}

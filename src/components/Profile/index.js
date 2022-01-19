@@ -1,116 +1,164 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Spinner, Stack} from "@chakra-ui/react";
 
-//////////////////////////////////////////////////////////////////////////////////
+import { storage } from "../../Firebase";
+import { Spinner, Stack, Button, CloseButton } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
+import {AiFillSetting} from 'react-icons/ai'
+
 
 const Profile = () => {
+  //get user in profile...
+  const [user, setUser] = useState([]);
+  const [avatar, setAvatar] = useState(null);
+  const [urll, setUrll] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [edit, setEdit] = useState(false);
+    const { id } = useParams();
 
-  let navigate = useNavigate();
   const state = useSelector((state) => {
     return state;
   });
-  const [user, setuser] = useState([]);
-  const [userLikes, setUserLikes] = useState([]);
-  useEffect(() => {
-    // getAllLikes();
-    getTheUser();
-  }, []);
 
-  //////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////{  Get user Information }/////////////////////////////////
 
-  const getTheUser = async () => {
+  const getOneUser = async () => {
+    const user = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/user/users/${state.signIn.userID}`,
+      {
+        headers: {
+          Authorization: `Bearer ${state.signIn.token}`,
+        },
+      }
+    );
+    console.log(user.data);
+    setUser(user.data);
+  };
+  /////////////////////////////{  avatar  }/////////////////////////////////////////////
 
-      const user = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/user/users/${state.signIn.userID}`,
-        {
-          headers: {
-            Authorization: `Bearer ${state.signIn.token}`,
-          },
-        }
-      );
-      console.log(user.data);
-      setuser(user.data);
 
-    //////////////////////////////////////////////////////////////////////////////////
-
-      // const getAllLikes = await axios.get(
-      //   `${process.env.REACT_APP_BASE_URL}/likes//:onProduct${state.signIn.userID}`,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${state.signIn.token}`,
-      //     },
-      //   }
-      // );
-      // console.log(userLikes.data);
-      // setUserLikes(userLikes.data);
+  const handleChangeAvatar = (e) => {
+    if (e.target.files[0]) {
+      setAvatar(e.target.files[0]);
+    }
   };
 
-  //////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////{  handleUploadAvatar  }////////////////////////////
 
-  // const goInside = (id) => {
-  //   navigate(`/Home/post/${id}`);
-  // };
-  //////////////////////////////////////////////////////////////////////////////////
+  const handleUploadAvatar = () => {
+    const uploadTask = ref(storage,`images/${avatar.name}`)
+    // .put(avatar);
+    const uploadImamge = uploadBytesResumable(uploadTask, avatar);
 
+    uploadImamge.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+          getDownloadURL(uploadImamge.snapshot.ref).then((url) => {
+            updateUser(url)
+          }); 
+       
+      }
+    );
+  };
+
+  ////////////////////////////{   Edit Profile  }//////////////////////////////////////
+
+  const updateUser = async (img ) => {
+   
+      console.log(id,"id",state.signIn.userID);
+    const result = await axios.put(
+      `${process.env.REACT_APP_BASE_URL}/user/updateProfile/${state.signIn.userID}`,
+      {
+         avatar: img,
+      },
+
+      { headers: { Authorization: `Bearer ${state.signIn.token}` } }
+    );
+    console.log(result.data);
+    getOneUser();
+  };
+
+  useEffect(() => {
+    getOneUser();
+  }, []);
+
+
+  ///////////////////////////////{  Return  }//////////////////////////////////////////////
   return (
     <>
-      <div>
-        {user && user[0] ? (
-          <>
-            <div className="contenerImg">
-              <div className="workPls">
-                <div className="borderImg">
-                  <img className="othersImg" src={user[0].avatar} alt="img" />
-                </div>
-              </div>
-              <h3 className="name"> name : {user[0].name} </h3>
-              <h3 className="name"> username : {user[0].username} </h3>
-              <h3 className="name"> email : {user[0].email} </h3>
-              <h3 className="name"> city :{user[0].city} </h3>
-              <h3 className="name"> street :{user[0].street} </h3>
+      {user && user[0] ? (
+        <div className="return">
+          <div className="contenerImg">
+            <AiFillSetting className="Setting" onClick={() => setEdit(true)} />
+            <div className="borderImg">
+              <img className="othersImg" src={user[0].avatar} alt="img" />
             </div>
-          </>
-        ) : (
-          <Stack direction="row" spacing={4}>
-            <Spinner size="xl" />
-          </Stack>
-        )}
-      </div>
-
-      {/* <div>
-        {userLikes && (
-          <>
-            {userLikes.length ? (
-              <div className="allImg">
-                {userLikes.map((item) => (
-                  <>
-                    <h4
-                      key={item._id}
-                      className="profileDes"
-                      onClick={() => goInside(item._id)}
+            <h3 className="name"> name : {user[0].name} </h3>
+            <h3 className="name"> username : {user[0].username} </h3>
+            <h3 className="name"> email : {user[0].email} </h3>
+            {/* <h3 className="name"> city : {user[0].city} </h3>
+            <h3 className="name"> street : {user[0].street} </h3> */}
+          </div>
+          <div className="editContainer"></div>
+          {edit ? (
+            <div className="edit">
+              <CloseButton
+                size="lg"
+                colorScheme="teal"
+                variant="ghost"
+                className="action-button"
+                onClick={() => setEdit(false)}
+              />
+              {user.map((item) => (
+                <div key={item._id} className="card">
+                  <div>
+                    <input
+                      style={{ marginLeft: "100px", fontSize: "20px" }}
+                      className="choseFile"
+                      type="file"
+                      name="avatar"
+                      onChange={handleChangeAvatar}
+                    />
+                    <br />
+                    <progress
+                      style={{ marginLeft: "100px" }}
+                      value={progress}
+                      max="100"
+                    />
+                    <Button
+                      className="add"
+                      colorScheme="teal"
+                      variant="ghost"
+                      onClick={handleUploadAvatar}
                     >
-                      {item.description}
-                      {item.image && (
-                        <p className="photoPlusProfile"> + Photo </p>
-                      )}
-                    </h4>
-                  </>
-                ))}
-              </div>
-            ) : (
-              <p className="noPosted">
-                NOTHING LIKED: <br />
-                <br />
-              </p>
-            )}
-          </>
-        )}
-      </div> */}
+                      Add
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <Stack direction="row" spacing={4}>
+          <Spinner size="xl" />
+        </Stack>
+      )}
     </>
   );
-};
+}
 export default Profile;

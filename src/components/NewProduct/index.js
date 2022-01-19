@@ -6,16 +6,18 @@ import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, Stack, Input } from "@chakra-ui/react";
+;
 
 const Download = () => {
   const navigate = useNavigate();
-  const [add, setAddAnother] = useState([[]]);
-  const [product, setProduct] = useState([[]]);
   const [progress, setProgress] = useState(0);
   const [images, setImages] = useState([]);
-  // const { Formik } = formik;
+  const [product, setProduct] = useState([[]]);
+  const state = useSelector((state) => {
+    return state;
+  });
 
-  /////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////{   Upload Pictures   }////////////////////////////////////////////////////////
 
   const uploadPictures = (e) => {
     let image = e.target.files[0];
@@ -47,10 +49,6 @@ const Download = () => {
     setProgress(0);
   }, [images]);
 
-  const state = useSelector((state) => {
-    return state;
-  });
-
   /////////////////////////////////////////////////////////////////////////////////////////
 
   const addProduct = async (e) => {
@@ -77,17 +75,6 @@ const Download = () => {
 
   /////////////////////////////////////////////////////////////////////////////////////////
 
-  // const updateIngredient = (e, index) => {
-  //   const myIngre = [...add];
-  //   myIngre[index] = e.target.value;
-  //   setAddAnother(myIngre);
-  // };
-  //   const updaterecepe = (e, index) => {
-  //     const myIngre = [...product];
-  //     myIngre[index] = e.target.value;
-  //     setProduct(myIngre);
-  //   };
-
   useEffect(() => {
     // console.log(product);
   }, [product]);
@@ -97,7 +84,7 @@ const Download = () => {
   return (
     <div className="download">
       <form onSubmit={addProduct}>
-        <Stack spacing={3} >
+        <Stack spacing={3}>
           <Input
             variant="outline"
             name="category"

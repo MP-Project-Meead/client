@@ -3,6 +3,7 @@ import axios from "axios";
 // import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+// import Search from "../Search"
 import "antd/dist/antd.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
@@ -12,7 +13,7 @@ const Bags = (props) => {
   const [bags, setBags] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
-  //////////////////////////////////////////////////////////////////
+  ////////////////////////////{  oneProduct  }//////////////////////////////////////
 
   const oneProduct = (id) => {
     console.log(id);
@@ -22,6 +23,7 @@ const Bags = (props) => {
     return state;
   });
 
+  ///////////////////////////{  getBags  }///////////////////////////////////////
   const getBags = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
@@ -30,11 +32,12 @@ const Bags = (props) => {
     setBags(product.data.filter((ele) => ele.category == "Bag"));
   };
 
-  //////////////////////////////////////////////////////////////////
+  ///////////////////////////{  useEffect  }///////////////////////////////////////
 
   useEffect(() => {
     getBags();
   }, []);
+  //////////////////////////{  deleteProduct  }////////////////////////////////////////
 
   const deleteProduct = async (id) => {
     console.log(id);
@@ -49,47 +52,46 @@ const Bags = (props) => {
 
     getBags();
   };
+  
+  //////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////
-console.log(bags);
   return (
-    <div className="container">
-      <div className="bagsContainer">
-        {bags ? (
-          <>
-            {bags.map((ele) => {
-              return (
-                <>
-                  {console.log(ele.image)}
-                  <Card
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={
-                      <img
-                        alt="example"
-                        src={ele.image[0]}
-                        onClick={() => oneProduct(ele._id)}
-                      />
-                    }
-                  >
-                    <Meta title={ele.creator} description={ele.name} />
-                    <button
-                      className="deleteBtn"
-                      onClick={() => deleteProduct(ele._id)}
-                    >
-                      delete
-                    </button>
-                  </Card>
-                </>
-              );
-            })}
-          </>
-        ) : (
-          <h1>loading ...</h1>
-        )}
-      </div>
+    <div className="photosContner">
+      {bags ? (
+        <>
+          {bags.map((ele) => {
+            return (
+              <div className="card">
+                <Card
+                  onClick={() => oneProduct(ele._id)}
+                  hoverable
+                  style={{ width: 240 }}
+                  cover={<img alt="example" src={ele.image} />}
+                >
+                  <Meta title={ele.creator} description={ele.name} />
+
+                   {state.signIn.role === "61c4248139940ec8e18224cc" && (
+                        <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
+                          delete
+                        </button>)}
+
+                </Card>
+              </div>
+            );
+          })}
+        </>
+      ) : (
+        <h1>loading ...</h1>
+      )}
     </div>
   );
-};
+}; 
 
 export default Bags;
+//  {
+//    state.signIn.role === "61c4248139940ec8e18224cc" && (
+//      <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
+//        delete
+//      </button>
+//    );
+//  }

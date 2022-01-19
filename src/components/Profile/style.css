@@ -1,0 +1,57 @@
+.contenerImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500;
+    width: auto;
+}
+
+.add{
+ margin-left: 10px;
+ color: #8f7533;
+}
+.return{
+margin-top:12%;
+display: flex;
+justify-content: center;
+}
+.contenerImg{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    font-family: "Dosis", sans-serif;
+    display: grid;
+    width: 800px;
+    height: 500px;
+    margin-left: 5%;
+    color: #8f7533;
+    margin-bottom: 50px;
+    border-radius: 30px;
+}
+.othersImg{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: -199px;
+}
+
+.Setting{
+    color: #8f7533;
+    font-size: 40px;
+    margin-left:-60% ;
+
+}
+.edit{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: grid;
+    justify-content: center;
+    margin-bottom:5%;
+    width: 400px;
+    height: 500px;
+     border-radius: 30px;
+    /* margin-top: 2%; */
+    margin-left: 5px;
+}
+.action-button{
+    margin-left: 15%;
+    color: #8f7533;
+}

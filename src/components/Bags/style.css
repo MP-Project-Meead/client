@@ -1,10 +1,11 @@
-.bagsContainer {
+.photosContner {
   margin-top: 30%;
   margin: auto;
   display: grid;
   grid-template-columns: auto auto auto;
   border-radius: 5px;
   width: 70rem;
+
 }
 .deleteBtn{
     color: #8f7533;

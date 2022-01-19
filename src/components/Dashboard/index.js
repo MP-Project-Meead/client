@@ -11,13 +11,12 @@ import {
   Flex,
   Avatar,
   Box,
-  Text,Badge
+  Text,
+  Badge,
 } from "@chakra-ui/react";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 const Users = () => {
-  
   let navigate = useNavigate();
   const [allUsers, setAllUsers] = useState([]);
 
@@ -29,6 +28,7 @@ const Users = () => {
   const state = useSelector((state) => {
     return state;
   });
+  ////////////////////////////////////{  Get All User   }////////////////////////////////////
 
   const getAllUsers = async () => {
     const users = await axios.get(
@@ -41,7 +41,7 @@ const Users = () => {
     );
     setAllUsers(users.data);
   };
-
+  /////////////////////////////////////{   Delete User   }/////////////////////////////////////
   const deleteUser = async (userId) => {
     await axios.delete(
       `${process.env.REACT_APP_BASE_URL}/user/delete/${userId}`,
@@ -51,46 +51,29 @@ const Users = () => {
         },
       }
     );
-    
+
     getAllUsers();
   };
-
-  const goInside = (id) => {
-    navigate(`/profile/${id}`);
-  };
-
+  //////////////////////////////////////{   Return   }//////////////////////////////////////
   return (
     <div className="usersContener">
-      <h1 className="UsersText"> Users</h1>
-      <Center height="50px">
-        <Divider orientation="vertical" h="100px"/>
-      </Center>
-
+      
       {allUsers &&
         allUsers.map((ele) => {
           return (
             <div key={ele._id} className="userss">
               <Flex className="imgContener0">
-                <Avatar
-                  className="img3"
-                  src={ele.img}
-                  alt="img"
-                  onClick={() => {
-                    goInside(ele._id);
-                  }}
-                />
+                <Avatar className="img3" src={ele.img} alt="img" />
                 <Box ml="3">
-                  <Text
-                    fontWeight="bold"
-                    className="userName"
-                    onClick={() => {
-                      goInside(ele._id);
-                    }}
-                  >
-                    {ele.username}
+                  <Text fontWeight="bold" className="userName">
+                    Name : {ele.name}
                     <Badge ml="1" colorScheme="green">
                       New
                     </Badge>
+                    <br />
+                    UserName : {ele.username}
+                    <br />
+                    Email : {ele.email}
                   </Text>
                   <button
                     className="deleteBtn2"

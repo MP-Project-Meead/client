@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import {Spinner,Stack} from "@chakra-ui/react";
 const SuccessPay = () => {
   const id = useParams().id;
   const [seconds, setSeconds] = useState(1);
@@ -49,7 +50,9 @@ const state = useSelector((state) => {
 
   return (
     <div>
-      <h1>hhhhh</h1>
+      <Stack direction="row" spacing={4}>
+        <Spinner size="xl" />
+      </Stack>
     </div>
   );
 };
