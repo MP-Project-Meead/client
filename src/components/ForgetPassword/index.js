@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import {Input} from "@chakra-ui/react"
-/////////////////////////////////////////////////////////////////////////////////////////
+
 const Forget = () => {
   let navigate = useNavigate();
-  const [email, setEmail] = useState(""); //email or user
+  const [email, setEmail] = useState(""); 
   const [message, setMessage] = useState("");
-  /////////////////////////////////////////////////////////////////////////////////////////
+  
 
   const restPass = async () => {
     const result = await axios.put(
@@ -23,7 +23,7 @@ const Forget = () => {
       setMessage(result.data);
     }
   };
-  /////////////////////////////////////////////////////////////////////////////////////////
+  
 
   return (
     <div className="forgetPasswordPage">

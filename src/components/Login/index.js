@@ -10,7 +10,7 @@ const Login = () => {
   
   let navigate = useNavigate();
   const dispatchEvent = useDispatch();
-  const [email, setEmail] = useState(""); //email or user
+  const [email, setEmail] = useState(""); 
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,7 +31,6 @@ const Login = () => {
         token: users.data.token,
         userID: users.data.result._id,
       };
-      // console.log("jjjjjjjjjj");
 
       dispatchEvent(logIn(data));
       navigate(`/Home`);

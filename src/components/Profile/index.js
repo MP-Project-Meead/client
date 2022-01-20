@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import { useSelector } from "react-redux";
-
 import { storage } from "../../Firebase";
 import { Spinner, Stack, Button, CloseButton } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
@@ -11,7 +10,6 @@ import {AiFillSetting} from 'react-icons/ai'
 
 
 const Profile = () => {
-  //get user in profile...
   const [user, setUser] = useState([]);
   const [avatar, setAvatar] = useState(null);
   const [urll, setUrll] = useState("");
@@ -23,7 +21,6 @@ const Profile = () => {
     return state;
   });
 
-  /////////////////////////////{  Get user Information }/////////////////////////////////
 
   const getOneUser = async () => {
     const user = await axios.get(
@@ -37,7 +34,6 @@ const Profile = () => {
     console.log(user.data);
     setUser(user.data);
   };
-  /////////////////////////////{  avatar  }/////////////////////////////////////////////
 
 
   const handleChangeAvatar = (e) => {
@@ -46,7 +42,6 @@ const Profile = () => {
     }
   };
 
-  ///////////////////////////////////{  handleUploadAvatar  }////////////////////////////
 
   const handleUploadAvatar = () => {
     const uploadTask = ref(storage,`images/${avatar.name}`)
@@ -73,7 +68,6 @@ const Profile = () => {
     );
   };
 
-  ////////////////////////////{   Edit Profile  }//////////////////////////////////////
 
   const updateUser = async (img ) => {
    
@@ -95,7 +89,6 @@ const Profile = () => {
   }, []);
 
 
-  ///////////////////////////////{  Return  }//////////////////////////////////////////////
   return (
     <>
       {user && user[0] ? (
@@ -108,8 +101,7 @@ const Profile = () => {
             <h3 className="name"> name : {user[0].name} </h3>
             <h3 className="name"> username : {user[0].username} </h3>
             <h3 className="name"> email : {user[0].email} </h3>
-            {/* <h3 className="name"> city : {user[0].city} </h3>
-            <h3 className="name"> street : {user[0].street} </h3> */}
+            
           </div>
           <div className="editContainer"></div>
           {edit ? (

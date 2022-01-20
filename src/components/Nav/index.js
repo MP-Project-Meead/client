@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./style.css";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
@@ -10,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { FaUsers } from "react-icons/fa";
 import { AiOutlineFileAdd } from "react-icons/ai";
 
-////////////////////////////////////////////////////////////////////////////////////////////
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)

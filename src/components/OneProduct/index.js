@@ -15,20 +15,18 @@ import {
   StatHelpText,
   
 } from "@chakra-ui/react";
-import { BsFillTrashFill, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
-/////////////////////////////////////////////////////
+
 
 const OneProduct = () => {
   const id = useParams().id;
-  const param = useParams();
   const [oneProduct, setOneProduct] = useState(null);
 
   const [msg, setMsg] = useState("");
-  const [open, setOpen] = useState(false);
   const [cart, setCart] = useState();
 
-  /////////////////////////////////////////////////////
+  
 
   const state = useSelector((state) => {
     return {
@@ -36,30 +34,26 @@ const OneProduct = () => {
     };
   });
 
-  /////////////////////////////////////////////////////
+  
 
-  // console.log(id);
   useEffect(() => {
     productOne();
   }, []);
 
-  /////////////////////////////////////////////////////
+  
 
   const productOne = async () => {
     try {
       const product = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/product/oneProduct/${id}`
       );
-      // console.log(product.data);
       setOneProduct(product.data);
     } catch (error) {
       console.log("productOne", error);
     }
   };
 
-  // 
-  /////////////////////////////////////////////////////////////
-
+  
   const addToCart = async (id) => {
     console.log(id);
     try {

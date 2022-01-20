@@ -4,12 +4,10 @@ import axios from "axios";
 import "./style.css";
 import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
-import { useNavigate } from "react-router-dom";
-import { Button, Form, Stack, Input } from "@chakra-ui/react";
+import { Button, Stack, Input } from "@chakra-ui/react";
 ;
 
 const Download = () => {
-  const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState([[]]);
@@ -17,7 +15,6 @@ const Download = () => {
     return state;
   });
 
-  /////////////////////////////////{   Upload Pictures   }////////////////////////////////////////////////////////
 
   const uploadPictures = (e) => {
     let image = e.target.files[0];
@@ -43,17 +40,14 @@ const Download = () => {
     );
   };
 
-  /////////////////////////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
     setProgress(0);
   }, [images]);
 
-  /////////////////////////////////////////////////////////////////////////////////////////
 
   const addProduct = async (e) => {
     e.preventDefault();
-    // console.log(e.target.category.value);
     const result = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/product/create`,
 
@@ -73,13 +67,10 @@ const Download = () => {
     console.log(result.data);
   };
 
-  /////////////////////////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
-    // console.log(product);
   }, [product]);
 
-  /////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="download">

@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
-// import "./style.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { logIn } from "../../reducers/login";
 import { useDispatch } from "react-redux";
 
 
 const Signup = () => {
-  let navigate = useNavigate();
-  const dispatchEvent = useDispatch();
+  
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

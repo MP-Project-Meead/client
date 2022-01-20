@@ -5,14 +5,12 @@ import "./style.css";
 import { Card } from "antd";
 import { Spinner } from "@chakra-ui/react";
 
-//////////////////////////////////////////////////////////////////
 
 const Shoes = (props) => {
   const [shoes, setShoes] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
-  //////////////////////////////////////////////////////////////////
-  const getShoes = async () => {
+    const getShoes = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
     );
@@ -20,8 +18,7 @@ const Shoes = (props) => {
     setShoes(product.data.filter((elem) => elem.category === "Heels"));
   };
 
-  //////////////////////////////////////////////////////////////////
-
+  
   useEffect(() => {
     getShoes();
   }, []);
@@ -30,8 +27,7 @@ const Shoes = (props) => {
     navigate(`/product/${id}`);
   };
 
-  //////////////////////////////////////////////////////////////////
-
+  
   return (
     <div className="container">
       <div className="shoesContainer">

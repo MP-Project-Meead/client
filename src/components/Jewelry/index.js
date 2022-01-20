@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-// import "antd/dist/antd.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 
 
-//////////////////////////////////////////////////////////////////
 const Jewelry = (props) => {
     let navigate = useNavigate();
   const [jewelry, setJewelry] = useState([]);
@@ -15,8 +13,7 @@ const Jewelry = (props) => {
 const state = useSelector((state) => {
   return state;
 });
-  //////////////////////////////////////////////////////////////////
-  const getJewelry = async () => {
+    const getJewelry = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
     ); 
@@ -25,8 +22,7 @@ const state = useSelector((state) => {
 
   };
 
-  //////////////////////////////////////////////////////////////////
-
+  
   useEffect(() => {
     getJewelry();
   }, []);
@@ -49,8 +45,7 @@ const deleteProduct = async (id) => {
 
     getJewelry();
   };
-  //////////////////////////////////////////////////////////////////
-  
+    
 
   return (
     <div className="photosContner">

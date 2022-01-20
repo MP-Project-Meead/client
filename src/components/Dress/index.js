@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Card } from "antd";
 
-//////////////////////////////////////////////////////////////////
+
 const Dress = (props) => {
   const [dress, setDress] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
-  //////////////////////////////////////////////////////////////////
+  
   const getDress = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
@@ -19,7 +19,7 @@ const Dress = (props) => {
     setDress(product.data.filter((ele) => ele.category === "Dress"));
   };
 
-  //////////////////////////////////////////////////////////////////
+  
 
   useEffect(() => {
     getDress();
@@ -29,7 +29,7 @@ const Dress = (props) => {
     navigate(`/product/${id}`);
   };
 
-  //////////////////////////////////////////////////////////////////
+  
   return (
     <div className="container">
       <div className="dressContainer">

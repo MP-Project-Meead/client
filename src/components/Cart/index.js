@@ -11,7 +11,6 @@ import { SiApplepay } from "react-icons/si";
 import { Spinner, Stack } from "@chakra-ui/react";
 
 
-// const BASE_URL = "https://project2back.herokuapp.com";
 
 const Cart = () => {
   let navigate = useNavigate();
@@ -44,7 +43,7 @@ const Cart = () => {
   const PayItem = (id) => {
     navigate(`/Payment/${id}`);
   };
-  /////////////////////////////////////////////////////////////
+  
 
   const deleteItem = async (id) => {
     console.log(state.signIn.token);
@@ -66,7 +65,7 @@ const Cart = () => {
     }
   };
 
-  /////////////////////////////////////////////////////////////
+  
   return (
     <div className="photosContner">
       {userCart ? (

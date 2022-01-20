@@ -5,7 +5,6 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "./style.css";
-// import Navbar from "../Navbar";
 export default function CheckoutForm({id}) {
   const stripe = useStripe();
   const elements = useElements();
@@ -71,7 +70,6 @@ export default function CheckoutForm({id}) {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="containerPayment">
         <form id="payment-form" className="formPay" onSubmit={handleSubmit}>
           <PaymentElement id="payment-element" />

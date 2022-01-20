@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import Male from "./../Male";
 import Female from "./../Female";
-
 import photo1 from "../../image/Catier2.webp";
 import photo2 from "../../image/Catier.png";
 import photo4 from "../../image/بولقري4.png";
@@ -12,7 +11,7 @@ import photo8 from "../../image/CartierModel.jpeg";
 
 import Video from "../../video/video.mp4";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from "react-responsive-carousel";
 const Home = () => {
   return (

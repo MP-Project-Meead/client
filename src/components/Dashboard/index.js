@@ -14,21 +14,17 @@ import {
   Text,
   Badge,
 } from "@chakra-ui/react";
-////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Users = () => {
-  let navigate = useNavigate();
   const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     getAllUsers();
-    // eslint-disable-next-line
   }, []);
 
   const state = useSelector((state) => {
     return state;
   });
-  ////////////////////////////////////{  Get All User   }////////////////////////////////////
 
   const getAllUsers = async () => {
     const users = await axios.get(
@@ -41,7 +37,6 @@ const Users = () => {
     );
     setAllUsers(users.data);
   };
-  /////////////////////////////////////{   Delete User   }/////////////////////////////////////
   const deleteUser = async (userId) => {
     await axios.delete(
       `${process.env.REACT_APP_BASE_URL}/user/delete/${userId}`,
@@ -54,7 +49,6 @@ const Users = () => {
 
     getAllUsers();
   };
-  //////////////////////////////////////{   Return   }//////////////////////////////////////
   return (
     <div className="usersContener">
       

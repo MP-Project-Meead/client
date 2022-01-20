@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
 import ImageList from "@mui/material/ImageList";
 
-//////////////////////////////////////////////////////////////////
 const Female = (props) => {
   const [Female, setFemale] = useState([]);
   let navigate = useNavigate();
-  ////////////////////////////{  oneProduct  }//////////////////////////////////////
 
   const oneProduct = (id) => {
     console.log(id);
     navigate(`/product/${id}`);
   };
   
-
-  ///////////////////////////{  getFemale  }/////////////////////////////
+  
   const getFemale = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
@@ -27,7 +23,6 @@ const Female = (props) => {
     );
   };
 
-  ///////////////////////////{  useEffect  }///////////////////////////
 
   useEffect(() => {
     getFemale();
@@ -35,7 +30,6 @@ const Female = (props) => {
 
   
   
-  /////////////////////////////////////////////////////////////////////
 
   return (
     <div className="container">

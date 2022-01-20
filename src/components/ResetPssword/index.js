@@ -23,7 +23,6 @@ const Reset = () => {
   };
 
   return (
-    // <div className="forgetPasswordPage">
     <div className="resetPassworContent1">
       <Stack spacing={3}>
         <Input
@@ -52,7 +51,6 @@ const Reset = () => {
       {message}
     </div>
 
-    // </div>
   );
 };
 

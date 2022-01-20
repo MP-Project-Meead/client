@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-// import Search from "../Search"
-// import "antd/dist/antd.css";
+
 import { Card } from "antd";
 import { useSelector } from "react-redux";
 
-//////////////////////////////////////////////////////////////////
+
 const Bags = (props) => {
   const [bags, setBags] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
-  ////////////////////////////{  oneProduct  }//////////////////////////////////////
 
   const oneProduct = (id) => {
     console.log(id);
@@ -23,7 +20,6 @@ const Bags = (props) => {
     return state;
   });
 
-  ///////////////////////////{  getBags  }///////////////////////////////////////
   const getBags = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
@@ -32,12 +28,10 @@ const Bags = (props) => {
     setBags(product.data.filter((ele) => ele.category === "Bag"));
   };
 
-  ///////////////////////////{  useEffect  }///////////////////////////////////////
 
   useEffect(() => {
     getBags();
   }, []);
-  //////////////////////////{  deleteProduct  }////////////////////////////////////////
 
   const deleteProduct = async (id) => {
     console.log(id);
@@ -53,7 +47,7 @@ const Bags = (props) => {
     getBags();
   };
   
-  //////////////////////////////////////////////////////////////////
+  
 
   return (
     <div className="photosContner">

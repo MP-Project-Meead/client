@@ -11,9 +11,6 @@ export const stripePromise = loadStripe(
 
 const Payment = () => {
     const id = useParams().id;
-//   const projectId = useParams().projectId;
-//   const donate = useParams().donate;
-//   const packageId = useParams().packageId;
 
   const [clientSecret, setClientSecret] = useState("");
 
