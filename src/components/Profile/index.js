@@ -84,6 +84,7 @@ const Profile = () => {
 
   useEffect(() => {
     getOneUser();
+    // eslint-disable-next-line
   }, []);
 
 

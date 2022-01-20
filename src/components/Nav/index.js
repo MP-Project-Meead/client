@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -36,7 +36,7 @@ const Header = () => {
         <h1 className="luxury">Luxury</h1>
 
         <ul>
-          {state.signIn.token.length == 0 ? (
+          {state.signIn.token.length === 0 ? (
             <li className="lie" id="homeNav">
               <Link className="link" to="/signUp">
                 Signup

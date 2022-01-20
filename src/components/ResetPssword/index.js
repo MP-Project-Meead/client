@@ -9,7 +9,7 @@ const Reset = () => {
   const [code, setCode] = useState("");
   const [newPass, setNewPass] = useState("");
   const [message, setMessage] = useState("");
-
+  // eslint-disable-next-line
   const restPass = async () => {
     const result = await axios.put(
       `${process.env.REACT_APP_BASE_URL}/user/resetPassword`,
@@ -26,7 +26,6 @@ const Reset = () => {
     <div className="resetPassworContent1">
       <Stack spacing={3}>
         <Input
-          placeholder="the Code"
           size="lg"
           className="InputforgetPassword"
           type="text"
@@ -50,7 +49,6 @@ const Reset = () => {
       </Stack>
       {message}
     </div>
-
   );
 };
 

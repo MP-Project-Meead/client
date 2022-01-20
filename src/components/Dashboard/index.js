@@ -17,6 +17,7 @@ const Users = () => {
 
   useEffect(() => {
     getAllUsers();
+    // eslint-disable-next-line
   }, []);
 
   const state = useSelector((state) => {

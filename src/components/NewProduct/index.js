@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./style.css";
 import { storage } from "../../Firebase";
@@ -10,11 +10,11 @@ import { Button, Stack, Input } from "@chakra-ui/react";
 const Download = () => {
   const [progress, setProgress] = useState(0);
   const [images, setImages] = useState([]);
+  // eslint-disable-next-line
   const [product, setProduct] = useState([[]]);
   const state = useSelector((state) => {
     return state;
   });
-
 
   const uploadPictures = (e) => {
     let image = e.target.files[0];
@@ -40,11 +40,9 @@ const Download = () => {
     );
   };
 
-
   useEffect(() => {
     setProgress(0);
   }, [images]);
-
 
   const addProduct = async (e) => {
     e.preventDefault();
@@ -67,10 +65,7 @@ const Download = () => {
     console.log(result.data);
   };
 
-
-  useEffect(() => {
-  }, [product]);
-
+  useEffect(() => {}, [product]);
 
   return (
     <div className="download">
@@ -130,7 +125,7 @@ const Download = () => {
             style={{ display: "none" }}
           />{" "}
           <label htmlFor="img">upload image</label>
-          {!(progress == 0) ? (
+          {!(progress === 0) ? (
             <div className="progress">
               <p>upload successful{progress}%</p>
             </div>
@@ -139,7 +134,7 @@ const Download = () => {
 
         <div>
           {images?.map((image) => (
-            <img src={image} width="80px" height="80px" />
+            <img src={image} alt="" width="80px" height="80px" />
           ))}
         </div>
 

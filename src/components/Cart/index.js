@@ -22,6 +22,7 @@ const Cart = () => {
   const [userCart, setUserCart] = useState();
   useEffect(() => {
     getUserCart();
+    // eslint-disable-next-line
   }, []);
 
   const getUserCart = async () => {
@@ -70,7 +71,7 @@ const Cart = () => {
         <>
           {userCart.map((ele) => {
             return (
-              <div key={ele._id} className="card">
+              <div key={ele._id}className="card">
                 <Card
                   hoverable
                   style={{ width: 240 }}

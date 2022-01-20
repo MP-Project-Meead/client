@@ -22,11 +22,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const OneProduct = () => {
   const id = useParams().id;
   const [oneProduct, setOneProduct] = useState(null);
-
+  // eslint-disable-next-line
   const [msg, setMsg] = useState("");
+  // eslint-disable-next-line
   const [cart, setCart] = useState();
-
-  
 
   const state = useSelector((state) => {
     return {
@@ -34,13 +33,10 @@ const OneProduct = () => {
     };
   });
 
-  
-
   useEffect(() => {
     productOne();
+    // eslint-disable-next-line
   }, []);
-
-  
 
   const productOne = async () => {
     try {
@@ -53,7 +49,6 @@ const OneProduct = () => {
     }
   };
 
-  
   const addToCart = async (id) => {
     console.log(id);
     try {
@@ -69,11 +64,11 @@ const OneProduct = () => {
       );
 
       setCart(result.data);
-      {
-        result.status == 200
+      
+        result.status === 200
           ? setMsg("Added to Cart")
           : setMsg("didn't Added to Cart");
-      }
+      
       console.log(result.data);
     } catch (error) {
       console.log(error);
@@ -139,7 +134,7 @@ const OneProduct = () => {
                       className="deleteBtn"
                       onClick={() => addToCart(oneProduct._id)}
                     >
-                      <AiOutlineShoppingCart className="carticon"/>
+                      <AiOutlineShoppingCart className="carticon" />
                     </button>
                   )}
                 </Box>

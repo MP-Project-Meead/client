@@ -14,6 +14,7 @@ const state = useSelector((state) => {
 });
   useEffect(() => {
     deleteItem();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
