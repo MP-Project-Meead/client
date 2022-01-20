@@ -23,7 +23,6 @@ const OneProduct = () => {
   const id = useParams().id;
   const param = useParams();
   const [oneProduct, setOneProduct] = useState(null);
-  const [comments, setComments] = useState([]);
 
   const [msg, setMsg] = useState("");
   const [open, setOpen] = useState(false);
@@ -42,7 +41,6 @@ const OneProduct = () => {
   // console.log(id);
   useEffect(() => {
     productOne();
-    productComments();
   }, []);
 
   /////////////////////////////////////////////////////
@@ -59,17 +57,7 @@ const OneProduct = () => {
     }
   };
 
-  const productComments = async () => {
-    try {
-      const comments = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/comment/getAllComments/${id}`
-      );
-      setComments(comments.data);
-    } catch (error) {
-      console.log("productOne", error);
-    }
-  };
-
+  // 
   /////////////////////////////////////////////////////////////
 
   const addToCart = async (id) => {
@@ -97,7 +85,6 @@ const OneProduct = () => {
       console.log(error);
     }
   };
-// console.log(state);
   return (
     <Center>
       <>
