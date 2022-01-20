@@ -12,7 +12,6 @@ import {AiFillSetting} from 'react-icons/ai'
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [avatar, setAvatar] = useState(null);
-  const [urll, setUrll] = useState("");
   const [progress, setProgress] = useState(0);
   const [edit, setEdit] = useState(false);
     const { id } = useParams();
@@ -45,7 +44,6 @@ const Profile = () => {
 
   const handleUploadAvatar = () => {
     const uploadTask = ref(storage,`images/${avatar.name}`)
-    // .put(avatar);
     const uploadImamge = uploadBytesResumable(uploadTask, avatar);
 
     uploadImamge.on(

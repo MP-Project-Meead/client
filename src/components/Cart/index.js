@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+
 import "./style.css";
 import { useSelector } from "react-redux";
 import { Card } from "antd";
@@ -59,7 +58,6 @@ const Cart = () => {
       );
       console.log(result.data);
       getUserCart();
-      // setCart(result.data.cart)
     } catch (error) {
       console.log(error);
     }

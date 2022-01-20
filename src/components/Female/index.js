@@ -26,7 +26,7 @@ const Female = (props) => {
 
   useEffect(() => {
     getFemale();
-  }); ///[] شلت الدبندنسي
+  }); 
 
   
   

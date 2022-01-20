@@ -11,15 +11,12 @@ import { AiOutlineFileAdd } from "react-icons/ai";
 
 
 const Header = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
   let navigate = useNavigate();
   const dispatchEvent = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
-  const toggle = ()=> {
-    setDropdownOpen(!dropdownOpen);
-  }
+  
   const logout = () => {
     const data = {
       role: "",
