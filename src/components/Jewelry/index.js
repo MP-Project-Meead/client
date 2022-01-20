@@ -53,21 +53,22 @@ const deleteProduct = async (id) => {
         <>
           {jewelry.map((ele) => {
             return (
-                <div className="card">
-                  <Card
+              <div key={ele._id} className="card">
+                <Card
                   onClick={() => oneProduct(ele._id)}
                   hoverable
                   style={{ width: 240 }}
                   cover={<img alt="example" src={ele.image} />}
                 >
                   <Meta title={ele.creator} description={ele.name} />
-                   {
-                      state.signIn.role === "61c4248139940ec8e18224cc" && (
-                        <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
-                          delete
-                        </button>
-                      )
-                    }
+                  {state.signIn.role === "61c4248139940ec8e18224cc" && (
+                    <button
+                      className="deleteBtn"
+                      onClick={() => deleteProduct(ele._id)}
+                    >
+                      delete
+                    </button>
+                  )}
                 </Card>
               </div>
             );

@@ -70,7 +70,7 @@ const Cart = () => {
         <>
           {userCart.map((ele) => {
             return (
-              <div className="card">
+              <div key={ele._id} className="card">
                 <Card
                   hoverable
                   style={{ width: 240 }}

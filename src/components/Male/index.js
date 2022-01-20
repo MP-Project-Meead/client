@@ -33,6 +33,7 @@ const Male = (props) => {
     <div className="container">
       <div className="MaleContainer">
         {Male ? (
+          // eslint-disable-next-line
           <>
             <ImageList
               sx={{ width: 500, height: 450 }}
@@ -42,17 +43,23 @@ const Male = (props) => {
             >
               {Male.map((ele) => {
                 return (
-                  <>
+                  <div key={ele._id}>
                     {ele.image &&
                       ele.image.length &&
                       ele.image.map((im, i) => {
                         return i === 0 ? (
-                          <img src={im} onClick={() => oneProduct(ele._id)}  alt="img of male Products"/>
+                          <div key={im._id}>
+                            <img
+                              src={im}
+                              onClick={() => oneProduct(ele._id)}
+                              alt="img of male Products"
+                            />
+                          </div>
                         ) : (
                           ""
                         );
                       })}
-                  </>
+                  </div>
                 );
               })}
             </ImageList>

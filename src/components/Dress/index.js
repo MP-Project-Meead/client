@@ -36,7 +36,7 @@ const Dress = (props) => {
           <>
             {dress.map((ele) => {
               return (
-                <div className="card">
+                <div key={ele._id}  className="card">
                   <Card
                     onClick={() => oneProduct(ele._id)}
                     hoverable
