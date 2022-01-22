@@ -35,7 +35,7 @@ const Header = () => {
       <div className="nav">
         <h1 className="luxury">Luxury</h1>
 
-        <ul>
+        <ul className="nav1">
           {state.signIn.token.length === 0 ? (
             <li className="lie" id="homeNav">
               <Link className="link" to="/signUp">

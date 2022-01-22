@@ -13,11 +13,8 @@ import {
   StatLabel,
   StatNumber,
   StatHelpText,
-  
 } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
-
 
 const OneProduct = () => {
   const id = useParams().id;
@@ -64,11 +61,11 @@ const OneProduct = () => {
       );
 
       setCart(result.data);
-      
-        result.status === 200
-          ? setMsg("Added to Cart")
-          : setMsg("didn't Added to Cart");
-      
+
+      result.status === 200
+        ? setMsg("Added to Cart")
+        : setMsg("didn't Added to Cart");
+
       console.log(result.data);
     } catch (error) {
       console.log(error);
@@ -92,10 +89,9 @@ const OneProduct = () => {
               >
                 <Box
                   w="100%"
-                  height="200px"
+                  height="400px"
                   position="relative"
                   overflow="hidden"
-                  roundedTop="lg"
                 >
                   <Image
                     src={oneProduct.image[1]}
@@ -103,7 +99,9 @@ const OneProduct = () => {
                     alt="img of user"
                     layout="fill"
                     boxSize="200px"
-                    ml="2rem"
+                    w="50vw"
+                    height="46vh"
+                    className="imgProduct"
                   />
                 </Box>
                 <Box p="6">
@@ -148,4 +146,3 @@ const OneProduct = () => {
 };
 
 export default OneProduct;
-
