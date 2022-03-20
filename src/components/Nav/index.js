@@ -9,14 +9,13 @@ import { useDispatch } from "react-redux";
 import { FaUsers } from "react-icons/fa";
 import { AiOutlineFileAdd } from "react-icons/ai";
 
-
 const Header = () => {
   let navigate = useNavigate();
   const dispatchEvent = useDispatch();
   const state = useSelector((state) => {
     return state;
   });
-  
+
   const logout = () => {
     const data = {
       role: "",
@@ -32,10 +31,10 @@ const Header = () => {
 
   return (
     <>
-      <div className="nav">
-        <h1 className="luxury">Luxury</h1>
+      <div className="nav3">
+        <h1 className="luxury1">Luxury</h1>
 
-        <ul className="nav1">
+        <ul className="ulnav">
           {state.signIn.token.length === 0 ? (
             <li className="lie" id="homeNav">
               <Link className="link" to="/signUp">
@@ -43,28 +42,28 @@ const Header = () => {
               </Link>
             </li>
           ) : (
-            <li className="lie icons">
+            <li className="lie icon">
               <span onClick={logout}>
                 <AiOutlineLogout />
               </span>
             </li>
           )}
           {state.signIn.role === "61c42c3139940ec8e18224d0" && (
-            <li className="lie icons">
+            <li className="lie icon">
               <span className="iconLogut" onClick={goToProfile}>
                 <BiUserCircle />
               </span>
             </li>
           )}
           {state.signIn.role === "61c4248139940ec8e18224cc" && (
-            <li className="lie icons">
+            <li className="lie icon">
               <Link id="first" className="link" to="/Dashboard">
                 <FaUsers />
               </Link>
             </li>
           )}
           {state.signIn.role === "61c4248139940ec8e18224cc" && (
-            <li className="lie icons">
+            <li className="lie icon">
               <Link to="/NewProduct">
                 <AiOutlineFileAdd />
               </Link>
@@ -108,7 +107,5 @@ const Header = () => {
     </>
   );
 };
-
-
 
 export default Header;

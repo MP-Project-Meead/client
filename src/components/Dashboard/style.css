@@ -1,12 +1,12 @@
 .usersContener {
-  margin: 50px 200px;
+  margin: 50px 100px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.UsersText{
-color: #CDAE5D;
-font-size: 50px;
+.UsersText {
+  color: #cdae5d;
+  /* font-size: 50px; */
 }
 .userss {
   border: 0.5px solid rgba(192, 146, 102, 0.719);
@@ -14,12 +14,12 @@ font-size: 50px;
   margin-left: 50px;
   margin: 10px;
   padding: 10px;
-  width: 450px;
-  height: 200px;
+  /* width: 450px; */
+  /* height: 200px; */
 }
 .imgContener0 {
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  /* height: 200px; */
   display: inline-block;
   position: relative;
 }
@@ -41,7 +41,7 @@ font-size: 50px;
 
 .deleteBtn2 {
   border-style: none;
-  background-color:#CDAE5D;
+  background-color: #cdae5d;
 
   color: white;
   padding: 6px;
@@ -54,4 +54,15 @@ font-size: 50px;
 .deleteBtn2:hover {
   cursor: pointer;
   transform: scale(1.25) perspective(1px);
+}
+
+@media all and (max-width: 500px) {
+  .userss,
+  .deleteBtn2 {
+    word-break: break-word;
+    font-size: 10px;
+  }
+  .imgContener0 {
+    width: 250px;
+  }
 }

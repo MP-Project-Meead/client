@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-
 import { Card } from "antd";
 import { useSelector } from "react-redux";
-
 
 const Bags = (props) => {
   const [bags, setBags] = useState([]);
@@ -28,7 +26,6 @@ const Bags = (props) => {
     setBags(product.data.filter((ele) => ele.category === "Bag"));
   };
 
-
   useEffect(() => {
     getBags();
   }, []);
@@ -46,11 +43,9 @@ const Bags = (props) => {
 
     getBags();
   };
-  
-  
 
   return (
-    <div className="photosContner">
+    <div className="photosContner2">
       {bags ? (
         <>
           {bags.map((ele) => {
@@ -59,16 +54,19 @@ const Bags = (props) => {
                 <Card
                   onClick={() => oneProduct(ele._id)}
                   hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt="example" src={ele.image} />}
+                  style={{ xs: 2, sm: 4, md: 8 }}
+                  cover={<img alt="example" src={ele.image} className="imagess"/>}
                 >
                   <Meta title={ele.creator} description={ele.name} />
 
-                   {state.signIn.role === "61c4248139940ec8e18224cc" && (
-                        <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
-                          delete
-                        </button>)}
-
+                  {state.signIn.role === "61c4248139940ec8e18224cc" && (
+                    <button
+                      className="deleteBtn"
+                      onClick={() => deleteProduct(ele._id)}
+                    >
+                      delete
+                    </button>
+                  )}
                 </Card>
               </div>
             );
@@ -79,7 +77,7 @@ const Bags = (props) => {
       )}
     </div>
   );
-}; 
+};
 
 export default Bags;
 //  {

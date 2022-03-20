@@ -1,0 +1,19 @@
+/* .imageList {
+  width: 500px;
+  height: 450px;
+} */
+
+.containerMale {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* .MaleContainer > div {
+    width: 20vw;
+} */
+
+.itemImage {
+  width: 20vw;
+}
+

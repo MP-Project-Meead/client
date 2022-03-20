@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
+import "./style.css";
 
 const Female = (props) => {
   const [Female, setFemale] = useState([]);
@@ -11,8 +12,7 @@ const Female = (props) => {
     console.log(id);
     navigate(`/product/${id}`);
   };
-  
-  
+
   const getFemale = async () => {
     const product = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/product/`
@@ -23,53 +23,48 @@ const Female = (props) => {
     );
   };
 
-
   useEffect(() => {
     getFemale();
-  }); 
-
-  
-  
+  });
 
   return (
-    <div className="container">
-      <div className="FemaleContainer">
-        {Female ? (
-          <>
-          
-            <ImageList
+    <div className="containerFemale">
+      {Female ? (
+        <>
+          {/* <ImageList
               sx={{ width: 500, height: 450 }}
               variant="quilted"
               cols={4}
               rowHeight={121}
-            >
-              
-              {Female.map((ele, i) => {
-                return (
-                  <>
-                    {ele.image &&
-                      ele.image.length &&
-                      ele.image.map((im, i) => {
-                        return i === 0 ? (
-                          <img
-                            key={im._id}
-                             src={im}
-                            onClick={() => oneProduct(ele._id)}
-                            alt="img Of Female Products"
-                          />
-                        ) : (
-                          ""
-                        );
-                      })}
-                  </>
-                );
-              })}
-            </ImageList>
-          </>
-        ) : (
-          <h1>loading ...</h1>
-        )}
-      </div>
+            > */}
+
+          {Female.map((ele, i) => {
+            return (
+              <>
+                {ele.image &&
+                  ele.image.length &&
+                  ele.image.map((im, i) => {
+                    return i === 0 ? (
+                      <div key={im._id}>
+                        <img
+                          key={im._id}
+                          src={im}
+                          onClick={() => oneProduct(ele._id)}
+                          alt="img Of Female Products"
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    );
+                  })}
+              </>
+            );
+          })}
+          {/* </ImageList> */}
+        </>
+      ) : (
+        <h1>loading ...</h1>
+      )}
     </div>
   );
 };

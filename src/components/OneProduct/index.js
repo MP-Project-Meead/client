@@ -129,7 +129,7 @@ const OneProduct = () => {
                   </Box>
                   {state.signIn.role === "61c42c3139940ec8e18224d0" && (
                     <button
-                      className="deleteBtn"
+                      className="deleteBtnnn"
                       onClick={() => addToCart(oneProduct._id)}
                     >
                       <AiOutlineShoppingCart className="carticon" />

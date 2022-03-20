@@ -5,11 +5,11 @@
 }
 .propertyImges {
   width: 100%;
-  height: 550px;
-}
-.paragraph {
   height: 100%;
-  width: 100%;
+}
+.imgContener {
+  height: 40rem;
+  width: 100vw;
 }
 
 .ContainerHome1 {
@@ -40,30 +40,64 @@
   height: 400px;
   width: 900px;
 }
-.MaleDiv{
-margin-left: 20% ;
-  width:800px;
-  height: 500;
+.MaleDiv {
+  /* margin-left: 20%; */
+  margin: 5vw auto;
+  /* height: 500; */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* flex-direction: column; */
 }
-.ModelMale{
+.FemaleDiv {
+  /* margin-left: 20%; */
+  margin: 5vw auto;
+  /* height: 500; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+}
+.maleSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.ModelMale {
+  /* display: block; */
   border-radius: 10px;
   height: 500px;
   width: 300px;
 }
-.KindMale{
+.KindMale {
   margin-top: 5%;
-  font-family: 'Cinzel Decorative', cursive;
+  /* display: block; */
+  font-family: "Cinzel Decorative", cursive;
   font-size: 30px;
-  margin-left: 27%;
-color: #8f7533;}
+  /* margin-left: 27%; */
+  color: #8f7533;
+}
 
-.KindFemale{
+.KindFemale {
   margin-top: 5%;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   font-size: 30px;
-  margin-left: 55%;
-color: #8f7533;
+  /* margin-left: 55%; */
+  color: #8f7533;
+}
+
+@media all and (max-width: 630px) {
+  .imgContener {
+    height: 70%;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .MaleDiv {
+    flex-direction: column;
+  }
+  .FemaleDiv {
+    flex-direction: column-reverse;
+  }
 }

@@ -1,5 +1,5 @@
-import React  from "react";
-import { Route, Routes  } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Signup from "./components/Signup";
@@ -17,12 +17,12 @@ import Dashboard from "./components/Dashboard";
 import NewProduct from "./components/NewProduct";
 import Payment from "./components/Payment";
 import SuccessPay from "./components/SuccessPay";
-
-
+import Footer from "./components/Footer";
+import "./style.css";
 
 const App = () => {
   return (
-    <>
+    <div className="app">
       <Nav />
 
       <Routes>
@@ -44,10 +44,9 @@ const App = () => {
         <Route exact path="/SuccessPay/:id" element={<SuccessPay />} />
         <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
         <Route exact path="/ResetPssword" element={<ResetPssword />} />
-       
       </Routes>
-     
-    </>
+      <Footer />
+    </div>
   );
 };
 export default App;

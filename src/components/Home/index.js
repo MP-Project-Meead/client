@@ -11,7 +11,7 @@ import photo8 from "../../image/CartierModel.jpeg";
 
 import Video from "../../video/video.mp4";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 const Home = () => {
   return (
@@ -45,7 +45,7 @@ const Home = () => {
         </div>
       </Carousel>
 
-      <div className="video">
+      {/* <div className="video">
         <video
           controls
           autostart
@@ -55,19 +55,25 @@ const Home = () => {
           className="video1"
         />
       </div>
-      <hr />
-      <h3 className="KindMale">Male</h3>
+      <hr /> */}
+
       <div className="MaleDiv">
-        <img alt="img" className="ModelMale" src={photo7} />
+        <div className="maleSection">
+          <h3 className="KindMale">Male</h3>
+          <img alt="img" className="ModelMale" src={photo7} />
+        </div>
 
         <Male />
       </div>
       <hr />
-      <h3 className="KindFemale">Female</h3>
-      <div className="MaleDiv">
+
+      <div className="FemaleDiv">
         <br />
         <Female />
-        <img alt="img" className="ModelMale" src={photo8} />
+        <div className="maleSection">
+          <h3 className="KindFemale">Female</h3>
+          <img alt="img" className="ModelMale" src={photo8} />
+        </div>
       </div>
     </div>
   );
