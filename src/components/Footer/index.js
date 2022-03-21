@@ -2,28 +2,43 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import {
-  // AiFillFacebook,
   AiOutlineTwitter,
   AiFillInstagram,
   AiFillGithub,
 } from "react-icons/ai";
+import { FaLinkedinIn } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="fulldiv">
         <div className="navStart">
-          <a href="hhttps://twitter.com/MeeadAlotaibi" className="socaialIcons">
+          <a
+            href="https://twitter.com/MeeadAlotaibi"
+            className="socaialIcons"
+            target="_blank"
+          >
             <AiOutlineTwitter />
           </a>
-          <a href="https://www.instagram.com/meed77/" className="socaialIcons">
-            <AiFillInstagram />
+          <a href="mailto:meeadalotaibi77@gmail.com" className="socaialIcons">
+            <SiGmail />
           </a>
-          <a href="https://github.com/MeeadAlotaibi" className="socaialIcons">
+          <a
+            href="https://github.com/MeeadAlotaibi"
+            className="socaialIcons"
+            target="_blank"
+          >
             <AiFillGithub />
           </a>
+          <a
+            href="https://www.linkedin.com/in/meead-alotaibi/"
+            className="socaialIcons"
+            target="_blank"
+          >
+            <FaLinkedinIn />
+          </a>
         </div>
-
         <h4
           style={{
             color: "white",

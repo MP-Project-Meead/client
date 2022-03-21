@@ -26,16 +26,9 @@ const Male = (props) => {
 
   return (
     <div className="containerMale">
-    
         {Male ? (
           // eslint-disable-next-line
           <>
-            {/* <ImageList
-              sx={{ width: 500, height: 450 }}
-              variant="quilted"
-              cols={2}
-              rowHeight={121}
-            > */}
             {Male.map((ele) => {
               return (
                 <>
@@ -58,7 +51,6 @@ const Male = (props) => {
                 </>
               );
             })}
-            {/* </ImageList> */}
           </>
         ) : (
           <h1>loading ...</h1>

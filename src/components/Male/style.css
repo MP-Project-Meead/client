@@ -1,19 +1,26 @@
-/* .imageList {
-  width: 500px;
-  height: 450px;
-} */
 
 .containerMale {
+  /* display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center; */
+  width: 40%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
 }
-/* .MaleContainer > div {
-    width: 20vw;
-} */
+.containerMale > div {
+  min-width: 70px;
+  width: 10vw;
+}
 
 .itemImage {
   width: 20vw;
 }
 
+@media all and (max-width: 742px) {
+  .containerMale {
+    width: 300px;
+  }
+}

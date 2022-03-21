@@ -6,21 +6,16 @@ import { storage } from "../../Firebase";
 import { Spinner, Stack, Button, CloseButton } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
-import {AiFillSetting} from 'react-icons/ai'
-
-
+import { AiFillSetting } from "react-icons/ai";
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [avatar, setAvatar] = useState(null);
   const [progress, setProgress] = useState(0);
   const [edit, setEdit] = useState(false);
-    const { id } = useParams();
-
+  const { id } = useParams();
   const state = useSelector((state) => {
     return state;
   });
-
-
   const getOneUser = async () => {
     const user = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/user/users/${state.signIn.userID}`,
@@ -33,19 +28,14 @@ const Profile = () => {
     console.log(user.data);
     setUser(user.data);
   };
-
-
   const handleChangeAvatar = (e) => {
     if (e.target.files[0]) {
       setAvatar(e.target.files[0]);
     }
   };
-
-
   const handleUploadAvatar = () => {
-    const uploadTask = ref(storage,`images/${avatar.name}`)
+    const uploadTask = ref(storage, `images/${avatar.name}`);
     const uploadImamge = uploadBytesResumable(uploadTask, avatar);
-
     uploadImamge.on(
       "state_changed",
       (snapshot) => {
@@ -58,36 +48,28 @@ const Profile = () => {
         console.log(error);
       },
       () => {
-          getDownloadURL(uploadImamge.snapshot.ref).then((url) => {
-            updateUser(url)
-          }); 
-       
+        getDownloadURL(uploadImamge.snapshot.ref).then((url) => {
+          updateUser(url);
+        });
       }
     );
   };
-
-
-  const updateUser = async (img ) => {
-   
-      console.log(id,"id",state.signIn.userID);
+  const updateUser = async (img) => {
+    console.log(id, "id", state.signIn.userID);
     const result = await axios.put(
       `${process.env.REACT_APP_BASE_URL}/user/updateProfile/${state.signIn.userID}`,
       {
-         avatar: img,
+        avatar: img,
       },
-
       { headers: { Authorization: `Bearer ${state.signIn.token}` } }
     );
     console.log(result.data);
     getOneUser();
   };
-
   useEffect(() => {
     getOneUser();
     // eslint-disable-next-line
   }, []);
-
-
   return (
     <>
       {user && user[0] ? (
@@ -97,10 +79,11 @@ const Profile = () => {
             <div className="borderImg">
               <img className="othersImg" src={user[0].avatar} alt="img" />
             </div>
-            <h3 className="name"> name : {user[0].name} </h3>
-            <h3 className="name"> username : {user[0].username} </h3>
-            <h3 className="name"> email : {user[0].email} </h3>
-            
+            <div className="contentContainer">
+              <h2 className="name"> name : {user[0].name} </h2>
+              <h2 className="name"> username : {user[0].username} </h2>
+              <h2 className="name"> email : {user[0].email} </h2>
+            </div>
           </div>
           <div className="editContainer"></div>
           {edit ? (
@@ -151,5 +134,5 @@ const Profile = () => {
       )}
     </>
   );
-}
+};
 export default Profile;

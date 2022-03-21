@@ -7,9 +7,8 @@ import photo2 from "../../image/Catier.png";
 import photo4 from "../../image/بولقري4.png";
 import photo5 from "../../image/AA.webp";
 import photo7 from "../../image/Model Man.jpeg";
-import photo8 from "../../image/CartierModel.jpeg";
 
-import Video from "../../video/video.mp4";
+import photo8 from "../../image/CartierModel.jpeg";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -44,18 +43,6 @@ const Home = () => {
           <img alt="img" className="propertyImges" src={photo5} />
         </div>
       </Carousel>
-
-      {/* <div className="video">
-        <video
-          controls
-          autostart
-          autoPlay
-          src={Video}
-          type="video/mp4"
-          className="video1"
-        />
-      </div>
-      <hr /> */}
 
       <div className="MaleDiv">
         <div className="maleSection">

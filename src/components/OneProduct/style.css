@@ -1,42 +1,57 @@
-.bigContainer {
+.oneProductContainer {
+  margin: 5% auto 0;
+  width: 80%;
+  display: flex;
+  justify-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  margin: 8%;
-  width: 70%;
-  margin-bottom: 50px;
+  border-radius: 10px;
 }
-.smallContainer {
-  margin-left: 1%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.textConainer {
+  margin: 0 20px ;
+  padding: 20px 0 ;
+}
+.carticon {
+  transition: 0.5s ease;
+  font-size: 35px;
+  margin-top: 15px;
+  color: #8f7533;
+}
+.carticon:hover {
+  transform: scale(1.2) perspective(1px);
 }
 .imgProduct {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  height: 99.8%;
 }
-.OneJewelry {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  width: 400px;
-  height: 100%;
+.imgHeading {
+  font-size: 1.9vw;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
 }
-.flex {
-  margin-top: 5%;
-  height: 500px;
-  width: 900px;
+.pr{
+  font-size: 1.2vw;
+  text-align: justify;
+  text-justify: inter-word;
 }
-.carticon {
-  font-size: 30px;
-  margin-top: 15px;
-}
-.deleteBtnnn{
-  color: #8f7533;
-  transition: 0.5s ease;
-}
-.deleteBtnnn :hover{
-  transform: scale(1.2) perspective(1px);
-
+@media all and (max-width: 1000px) {
+  .oneProductContainer {
+    flex-wrap: wrap;
+    width: 95%;
+    margin-top: 10%;
+  }
+  .imgProduct {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+  }
+  .imgHeading {
+    font-size: 3vw;
+  }
+  .iconContainer{
+    width: 50px;
+    margin: 5px auto;
+  }
 }

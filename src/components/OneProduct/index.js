@@ -3,26 +3,17 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./style.css";
-import {
-  Box,
-  Center,
-  Image,
-  Flex,
-  Heading,
-  Stat,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-} from "@chakra-ui/react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Stat, StatLabel, StatNumber, StatHelpText } from "@chakra-ui/react";
+import { IoCartSharp, IoCartOutline } from "react-icons/io5";
+
+////////////////////
 
 const OneProduct = () => {
   const id = useParams().id;
   const [oneProduct, setOneProduct] = useState(null);
   // eslint-disable-next-line
-  const [msg, setMsg] = useState("");
   // eslint-disable-next-line
-  const [cart, setCart] = useState();
+  const [checkCart, setCheckCart] = useState(0);
 
   const state = useSelector((state) => {
     return {
@@ -30,10 +21,14 @@ const OneProduct = () => {
     };
   });
 
+  ////////////////////
+
   useEffect(() => {
     productOne();
     // eslint-disable-next-line
   }, []);
+
+  ////////////////////
 
   const productOne = async () => {
     try {
@@ -44,105 +39,79 @@ const OneProduct = () => {
     } catch (error) {
       console.log("productOne", error);
     }
-  };
 
-  const addToCart = async (id) => {
-    console.log(id);
     try {
-      const result = await axios.put(
-        `${process.env.REACT_APP_BASE_URL}/product/addToCart`,
-        { _id: id },
-
+      const product = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/product/checkCart/${id}`,
         {
           headers: {
             Authorization: `Bearer ${state.signIn.token}`,
           },
         }
       );
+      console.log(product);
+      setCheckCart(product.status);
+    } catch (error) {
+      console.log("productOne", error);
+    }
+  };
 
-      setCart(result.data);
+  ////////////////////
 
-      result.status === 200
-        ? setMsg("Added to Cart")
-        : setMsg("didn't Added to Cart");
-
-      console.log(result.data);
+  const addToCart = async (id) => {
+    console.log(id);
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_BASE_URL}/product/addToCart`,
+        { _id: id },
+        {
+          headers: {
+            Authorization: `Bearer ${state.signIn.token}`,
+          },
+        }
+      );
+      productOne();
     } catch (error) {
       console.log(error);
     }
   };
+
+  ////////////////////
+
   return (
-    <Center>
-      <>
-        {oneProduct && (
-          <>
-            <Center className="flex">
-              <Flex
-                alignItems="center"
-                justifyContent="center"
-                bg="white"
-                rounded="xl"
-                shadow="lg"
-                borderWidth="1px"
-                m="0.5rem"
-                h="25rem"
-              >
-                <Box
-                  w="100%"
-                  height="400px"
-                  position="relative"
-                  overflow="hidden"
+    <>
+      {oneProduct && (
+        <div className="oneProductContainer">
+          <div>
+            <img src={oneProduct.image[1]} className="imgProduct" />
+          </div>
+          <div className="textConainer">
+            <h1 className="imgHeading">{oneProduct.name}</h1>
+            <Stat>
+              <StatLabel> {oneProduct.creator}</StatLabel>
+              <StatNumber>$ {oneProduct.price}</StatNumber>
+              <StatHelpText> size : {oneProduct.size}</StatHelpText>
+              {/* <StatHelpText>{oneProduct.time}</StatHelpText> */}
+            </Stat>
+            <p className="pr">{oneProduct.description}</p>
+            {state.signIn.role === "61c42c3139940ec8e18224d0" && (
+              <div className="iconContainer">
+                <button
+                  className="deleteBtnnn"
+                  onClick={() => addToCart(oneProduct._id)}
                 >
-                  <Image
-                    src={oneProduct.image[1]}
-                    objectFit="cover"
-                    alt="img of user"
-                    layout="fill"
-                    boxSize="200px"
-                    w="50vw"
-                    height="46vh"
-                    className="imgProduct"
-                  />
-                </Box>
-                <Box p="6">
-                  <Box
-                    fontWeight="semibold"
-                    as="h4"
-                    lineHeight="tight"
-                    isTruncated
-                  >
-                    <Heading as="h4" size="md">
-                      {oneProduct.name}
-                      {oneProduct.likeBy.length}
-                    </Heading>
-                  </Box>
-                  <Box>
-                    <Stat>
-                      <StatLabel> {oneProduct.creator}</StatLabel>
-                      <StatNumber> {oneProduct.price}</StatNumber>
-                      <StatHelpText> size : {oneProduct.size}</StatHelpText>
-                      <StatHelpText>{oneProduct.time}</StatHelpText>
-                    </Stat>
-                  </Box>
-                  <Box>
-                    <p>{oneProduct.description}</p>
-                  </Box>
-                  {state.signIn.role === "61c42c3139940ec8e18224d0" && (
-                    <button
-                      className="deleteBtnnn"
-                      onClick={() => addToCart(oneProduct._id)}
-                    >
-                      <AiOutlineShoppingCart className="carticon" />
-                    </button>
+                  {checkCart === 200 ? (
+                    <IoCartSharp className="carticon" />
+                  ) : (
+                    <IoCartOutline className="carticon" />
                   )}
-                </Box>
-              </Flex>
-            </Center>
-          </>
-        )}
-      </>
-    </Center>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
-
 export default OneProduct;

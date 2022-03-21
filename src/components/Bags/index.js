@@ -6,6 +6,7 @@ import { Card } from "antd";
 import { useSelector } from "react-redux";
 
 const Bags = (props) => {
+  
   const [bags, setBags] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;

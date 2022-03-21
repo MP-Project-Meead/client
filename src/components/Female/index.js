@@ -31,13 +31,6 @@ const Female = (props) => {
     <div className="containerFemale">
       {Female ? (
         <>
-          {/* <ImageList
-              sx={{ width: 500, height: 450 }}
-              variant="quilted"
-              cols={4}
-              rowHeight={121}
-            > */}
-
           {Female.map((ele, i) => {
             return (
               <>
@@ -60,7 +53,6 @@ const Female = (props) => {
               </>
             );
           })}
-          {/* </ImageList> */}
         </>
       ) : (
         <h1>loading ...</h1>

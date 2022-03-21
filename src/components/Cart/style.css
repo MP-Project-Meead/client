@@ -1,14 +1,62 @@
-
-.photosContner{
-    margin-top: 5%;
+.photosContnerr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
 }
-.iconDelAndPay{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
+.cardd {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  /* border: 1px dotted black; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.hhh{
-    font-size: 20px;
-    color: #8f7533;
+.cardd img {
+  height: 10vw;
+  width: 10vw;
+}
+.cardDisc {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.hhh {
+  font-size: 2.2vw;
+  color: #8f7533;
+  margin-right: 3vw;
+  cursor: pointer;
+}
+.payIcon {
+  font-size: 4vw;
+  color: #8f7533;
+  cursor: pointer;
+  display: inline;
+}
+.cartTotal {
+  margin-top: 5vw;
+  font-size: 2.5vw;
+  font-family: "Courier New", Courier, monospace;
+}
+.cartTotal span {
+  font-weight: bold;
+}
+.checkoutContainer {
+  display: flex;
+  justify-content: center;
+}
+.payIconC {
+  margin-left: 1vw;
+}
+.meta {
+  font-size: 1.2vw;
+}
+@media all and (max-width: 1000px) {
+  .cardd {
+    width: 90%;
+  }
+  .hhh {
+    font-size: 3.5vw;
+  }
 }

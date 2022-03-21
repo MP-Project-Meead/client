@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-
 import "./style.css";
 import { useSelector } from "react-redux";
 import { Card } from "antd";
@@ -9,21 +8,25 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { SiApplepay } from "react-icons/si";
 import { Spinner, Stack } from "@chakra-ui/react";
 
-
+////////////////////
 
 const Cart = () => {
   let navigate = useNavigate();
+  const [userCart, setUserCart] = useState();
+  const [totalPrice, setTotalPrice] = useState();
   const { Meta } = Card;
-
   const state = useSelector((state) => {
     return state;
   });
 
-  const [userCart, setUserCart] = useState();
+  ////////////////////
+
   useEffect(() => {
     getUserCart();
     // eslint-disable-next-line
   }, []);
+
+  ////////////////////
 
   const getUserCart = async () => {
     const cart = await axios.get(
@@ -34,16 +37,26 @@ const Cart = () => {
         },
       }
     );
-    console.log(cart.data.cart);
     setUserCart(cart.data.cart);
+    
+    let total = 0;
+    cart.data.cart.map((ele) => (total += ele.price));
+    setTotalPrice(total);
   };
+
+  ////////////////////
+
   const goInside = (id) => {
     navigate(`/product/${id}`);
   };
+
+  ////////////////////
+
   const PayItem = (id) => {
     navigate(`/Payment/${id}`);
   };
-  
+
+  ////////////////////
 
   const deleteItem = async (id) => {
     console.log(state.signIn.token);
@@ -64,40 +77,63 @@ const Cart = () => {
     }
   };
 
-  
+  ////////////////////
+
+
   return (
-    <div className="photosContner">
+    <div className="photosContnerr">
       {userCart ? (
         <>
           {userCart.map((ele) => {
             return (
-              <div key={ele._id}className="card">
-                <Card
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={
+              <>
+                {console.log(totalPrice)}
+                <div key={ele._id} className="cardd">
+                  <div>
                     <img
                       alt="example"
                       src={ele.image}
                       onClick={() => goInside(ele._id)}
                     />
-                  }
-                >
-                  <Meta title={ele.creator} description={ele.name} />
-                  <div className="iconDelAndPay">
-                    <BsFillTrashFill
-                      onClick={() => deleteItem(ele._id)}
-                      className="hhh"
-                    />
-                    <SiApplepay
-                      onClick={() => PayItem(ele._id)}
-                      className="hhh"
-                    />
                   </div>
-                </Card>
-              </div>
+                  <div className="cardDisc">
+                    <div>
+                      <Meta
+                        className="meta"
+                        title={ele.creator}
+                        description={ele.name}
+                      />
+                      <h3>${ele.price}</h3>
+                    </div>
+                    <div className="iconDelAndPay">
+                      <BsFillTrashFill
+                        onClick={() => deleteItem(ele._id)}
+                        className="hhh"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
             );
           })}
+          {totalPrice ? (
+            <div className="cartTotal">
+              <div>
+                Cart Total: <span> ${totalPrice} </span>
+              </div>
+              <div className="checkoutContainer">
+                <div> Checkout </div>
+                <div className="payIconC">
+                  <SiApplepay
+                    onClick={() => PayItem("fff")}
+                    className="payIcon"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <Stack direction="row" spacing={4}>
@@ -107,5 +143,4 @@ const Cart = () => {
     </div>
   );
 };
-
 export default Cart;
