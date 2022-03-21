@@ -92,7 +92,7 @@
  ### Linkes 
 * Clint [Client repository Link](https://github.com/MP-Project-Meead/client)
 * Server [Server repository Link](https://github.com/MP-Project-Meead/server)
-* Heroku [Deployed App Link](https://luxury-project.netlify.app/)
+* Netlify [Deployed App Link](https://luxury-project.netlify.app/)
 * Trello [Link to trello board](https://trello.com/b/gawVOASv/mp-porject)
 * Slides [Slides Link](http://slides.com/)
 
