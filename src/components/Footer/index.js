@@ -1,11 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import {
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillGithub,
-} from "react-icons/ai";
+import { AiOutlineTwitter, AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
@@ -18,6 +13,7 @@ const Footer = () => {
             href="https://twitter.com/MeeadAlotaibi"
             className="socaialIcons"
             target="_blank"
+            rel="noreferrer"
           >
             <AiOutlineTwitter />
           </a>
@@ -28,6 +24,7 @@ const Footer = () => {
             href="https://github.com/MeeadAlotaibi"
             className="socaialIcons"
             target="_blank"
+            rel="noreferrer"
           >
             <AiFillGithub />
           </a>
@@ -35,18 +32,19 @@ const Footer = () => {
             href="https://www.linkedin.com/in/meead-alotaibi/"
             className="socaialIcons"
             target="_blank"
+            rel="noreferrer"
           >
             <FaLinkedinIn />
           </a>
         </div>
         <h4
           style={{
-            color: "white",
+            color: "#8f7533",
             fontFamily:
               "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif",
           }}
         >
-          Luxury - 2021
+          Luxury - 2022
         </h4>
       </div>
     </div>

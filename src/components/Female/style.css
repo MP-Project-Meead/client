@@ -12,6 +12,7 @@
 
 .itemImage {
   width: 10vw;
+  cursor: pointer;
 }
 
 @media all and (max-width: 742px) {

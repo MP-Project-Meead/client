@@ -16,6 +16,13 @@
   display: flex;
   justify-content: center;
   position: relative;
+  
+}
+.progress{
+  display: flex;
+  justify-content: center;
+align-items: center;
+margin-top: 5%;
 }
 .contentContainer {
   margin: 10vw auto 0;

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ImageList from "@mui/material/ImageList";
 import "./style.css";
 
-const Female = (props) => {
+const Female = () => {
   const [Female, setFemale] = useState([]);
   let navigate = useNavigate();
 
@@ -40,6 +39,7 @@ const Female = (props) => {
                     return i === 0 ? (
                       <div key={im._id}>
                         <img
+                          className="itemImage"
                           key={im._id}
                           src={im}
                           onClick={() => oneProduct(ele._id)}

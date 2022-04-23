@@ -7,6 +7,7 @@ import { Spinner, Stack, Button, CloseButton } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { AiFillSetting } from "react-icons/ai";
+
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [avatar, setAvatar] = useState(null);
@@ -16,6 +17,7 @@ const Profile = () => {
   const state = useSelector((state) => {
     return state;
   });
+  
   const getOneUser = async () => {
     const user = await axios.get(
       `${process.env.REACT_APP_BASE_URL}/user/users/${state.signIn.userID}`,
@@ -128,7 +130,8 @@ const Profile = () => {
           )}
         </div>
       ) : (
-        <Stack direction="row" spacing={4}>
+        <Stack direction="row" spacing={4}
+        className="progress">
           <Spinner size="xl" />
         </Stack>
       )}

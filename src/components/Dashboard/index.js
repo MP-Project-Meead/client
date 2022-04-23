@@ -49,7 +49,6 @@ const Users = () => {
   };
   return (
     <div className="usersContener">
-      
       {allUsers &&
         allUsers.map((ele) => {
           return (

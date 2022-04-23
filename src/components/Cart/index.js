@@ -12,20 +12,17 @@ import { Spinner, Stack } from "@chakra-ui/react";
 
 const Cart = () => {
   let navigate = useNavigate();
-  const [userCart, setUserCart] = useState();
+  const [userCart, setUserCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
   const { Meta } = Card;
   const state = useSelector((state) => {
     return state;
   });
-
   ////////////////////
-
   useEffect(() => {
     getUserCart();
     // eslint-disable-next-line
   }, []);
-
   ////////////////////
 
   const getUserCart = async () => {
@@ -38,7 +35,7 @@ const Cart = () => {
       }
     );
     setUserCart(cart.data.cart);
-    
+
     let total = 0;
     cart.data.cart.map((ele) => (total += ele.price));
     setTotalPrice(total);
@@ -79,9 +76,9 @@ const Cart = () => {
 
   ////////////////////
 
-
   return (
     <div className="photosContnerr">
+      
       {userCart ? (
         <>
           {userCart.map((ele) => {
@@ -116,6 +113,7 @@ const Cart = () => {
               </>
             );
           })}
+
           {totalPrice ? (
             <div className="cartTotal">
               <div>

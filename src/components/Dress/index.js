@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
+import { Spinner, Stack } from "@chakra-ui/react";
 
-const Dress = (props) => {
+const Dress = () => {
   const [dress, setDress] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
@@ -72,7 +73,9 @@ const Dress = (props) => {
           })}
         </>
       ) : (
-        <h1>loading ...</h1>
+        <Stack direction="row" spacing={4} className="progress">
+          <Spinner size="xl" />
+        </Stack>
       )}
     </div>
   );

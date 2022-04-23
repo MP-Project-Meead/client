@@ -12,7 +12,6 @@ const OneProduct = () => {
   const id = useParams().id;
   const [oneProduct, setOneProduct] = useState(null);
   // eslint-disable-next-line
-  // eslint-disable-next-line
   const [checkCart, setCheckCart] = useState(0);
 
   const state = useSelector((state) => {
@@ -20,11 +19,15 @@ const OneProduct = () => {
       signIn: state.signIn,
     };
   });
+  console.log(state);
 
   ////////////////////
 
   useEffect(() => {
     productOne();
+    if (state.signIn.role === "61c42c3139940ec8e18224d0") {
+      toggel();
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -39,27 +42,11 @@ const OneProduct = () => {
     } catch (error) {
       console.log("productOne", error);
     }
-
-    try {
-      const product = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/product/checkCart/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${state.signIn.token}`,
-          },
-        }
-      );
-      console.log(product);
-      setCheckCart(product.status);
-    } catch (error) {
-      console.log("productOne", error);
-    }
   };
 
   ////////////////////
 
   const addToCart = async (id) => {
-    console.log(id);
     try {
       await axios.put(
         `${process.env.REACT_APP_BASE_URL}/product/addToCart`,
@@ -70,9 +57,28 @@ const OneProduct = () => {
           },
         }
       );
-      productOne();
     } catch (error) {
       console.log(error);
+    }
+    ///////////////
+    toggel();
+  };
+  const toggel = async () => {
+    console.log(id);
+    try {
+      const product = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/product/checkCart/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${state.signIn.token}`,
+          },
+        }
+      );
+      // productOne();
+      console.log(product);
+      setCheckCart(product.status);
+    } catch (error) {
+      console.log("productOne", error);
     }
   };
 
@@ -83,7 +89,11 @@ const OneProduct = () => {
       {oneProduct && (
         <div className="oneProductContainer">
           <div>
-            <img src={oneProduct.image[1]} className="imgProduct" />
+            <img
+              src={oneProduct.image[1]}
+              className="imgProduct"
+              alt="PicOfProduct"
+            />
           </div>
           <div className="textConainer">
             <h1 className="imgHeading">{oneProduct.name}</h1>
@@ -91,7 +101,6 @@ const OneProduct = () => {
               <StatLabel> {oneProduct.creator}</StatLabel>
               <StatNumber>$ {oneProduct.price}</StatNumber>
               <StatHelpText> size : {oneProduct.size}</StatHelpText>
-              {/* <StatHelpText>{oneProduct.time}</StatHelpText> */}
             </Stat>
             <p className="pr">{oneProduct.description}</p>
             {state.signIn.role === "61c42c3139940ec8e18224d0" && (

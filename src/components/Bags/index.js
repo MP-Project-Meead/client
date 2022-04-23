@@ -4,20 +4,25 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Card } from "antd";
 import { useSelector } from "react-redux";
+import { Spinner, Stack } from "@chakra-ui/react";
 
-const Bags = (props) => {
-  
+const Bags = () => {
   const [bags, setBags] = useState([]);
   let navigate = useNavigate();
   const { Meta } = Card;
+  const state = useSelector((state) => {
+    return state;
+  });
+
+  useEffect(() => {
+    getBags();
+  }, []);
 
   const oneProduct = (id) => {
     console.log(id);
     navigate(`/product/${id}`);
   };
-  const state = useSelector((state) => {
-    return state;
-  });
+  
 
   const getBags = async () => {
     const product = await axios.get(
@@ -26,10 +31,6 @@ const Bags = (props) => {
     console.log(product, "product");
     setBags(product.data.filter((ele) => ele.category === "Bag"));
   };
-
-  useEffect(() => {
-    getBags();
-  }, []);
 
   const deleteProduct = async (id) => {
     console.log(id);
@@ -56,7 +57,9 @@ const Bags = (props) => {
                   onClick={() => oneProduct(ele._id)}
                   hoverable
                   style={{ xs: 2, sm: 4, md: 8 }}
-                  cover={<img alt="example" src={ele.image} className="imagess"/>}
+                  cover={
+                    <img alt="example" src={ele.image} className="imagess" />
+                  }
                 >
                   <Meta title={ele.creator} description={ele.name} />
 
@@ -74,17 +77,12 @@ const Bags = (props) => {
           })}
         </>
       ) : (
-        <h1>loading ...</h1>
+        <Stack direction="row" spacing={4} className="progress">
+          <Spinner size="xl" />
+        </Stack>
       )}
     </div>
   );
 };
 
 export default Bags;
-//  {
-//    state.signIn.role === "61c4248139940ec8e18224cc" && (
-//      <button className="deleteBtn" onClick={() => deleteProduct(ele._id)}>
-//        delete
-//      </button>
-//    );
-//  }

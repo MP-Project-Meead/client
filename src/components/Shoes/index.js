@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { Card } from "antd";
-import { Spinner } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { Spinner, Stack } from "@chakra-ui/react";
 
 
 const Shoes = (props) => {
@@ -76,7 +76,9 @@ const Shoes = (props) => {
           })}
         </>
       ) : (
-        <h1>loading ...</h1>
+        <Stack direction="row" spacing={4} className="progress">
+          <Spinner size="xl" />
+        </Stack>
       )}
     </div>
   );

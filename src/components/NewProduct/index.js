@@ -5,8 +5,6 @@ import "./style.css";
 import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { Button, Stack, Input } from "@chakra-ui/react";
-;
-
 const Download = () => {
   const [progress, setProgress] = useState(0);
   const [images, setImages] = useState([]);
@@ -71,11 +69,12 @@ const Download = () => {
     <div className="download">
       <form onSubmit={addProduct}>
         <Stack spacing={3}>
+          {/* <h1>category</h1> */}
           <Input
             variant="outline"
             name="category"
             type="text"
-            placeholder="category"
+            placeholder="Category ex : Jewelry , shoes , Bag or clothing"
             htmlFor="first-name"
           />
           <Input variant="outline" name="name" type="text" placeholder="name" />{" "}
@@ -83,7 +82,7 @@ const Download = () => {
             variant="outline"
             name="gender"
             type="text"
-            placeholder="gender"
+            placeholder=" ex : male or female"
           />{" "}
           <Input
             variant="outline"
